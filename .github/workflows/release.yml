@@ -1,0 +1,74 @@
+name: Build and Release Typst PDF
+
+on:
+    push:
+        branches:
+            - master
+
+permissions:
+    contents: write
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: 🧾 Checkout repository
+              uses: actions/checkout@v3
+
+            - name: ⚙️ Install Typst
+              run: |
+                  curl -L https://github.com/typst/typst/releases/latest/download/typst-x86_64-unknown-linux-musl.tar.xz -o typst.tar.xz
+                  tar -xf typst.tar.xz
+                  sudo mv typst-x86_64-unknown-linux-musl/typst /usr/local/bin/
+
+            - name: 🔤 Install Fonts (中文 + Consolas + 常用)
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y fonts-cmu fonts-noto-cjk fonts-linuxlibertine ttf-mscorefonts-installer git unzip wget
+
+                  mkdir -p ~/.fonts
+
+                  # ✅ 黑体、宋体、楷体（来自 StellarCN 仓库）
+                  wget -O ~/.fonts/SimHei.ttf https://github.com/StellarCN/scp_zh/raw/master/fonts/SimHei.ttf
+                  wget -O ~/.fonts/SimSun.ttf https://github.com/StellarCN/scp_zh/raw/master/fonts/SimSun.ttf
+                  wget -O ~/.fonts/SimKai.ttf https://github.com/StellarCN/scp_zh/raw/master/fonts/SimKai.ttf
+
+                  # ✅ Consolas 字体（来自 pensnarik 仓库）
+                  git clone https://github.com/pensnarik/consolas-font.git
+                  cp consolas-font/*.ttf ~/.fonts/
+
+                  fc-cache -fv
+
+            - name: 🛠 Compile Typst to PDF
+              run: |
+                  make
+
+            - name: 🚀 Create GitHub Release
+              id: create_release
+              uses: softprops/action-gh-release@v1
+              with:
+                  tag_name: v${{ github.run_number }}
+                  name: "Auto Release #${{ github.run_number }}"
+                  body: |
+                      📄 This PDF was automatically generated from commit `${{ github.sha }}`
+                      📝 Commit message: ${{ github.event.head_commit.message }}
+                      🔗 Commit URL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: 📎 Upload PDF to Release
+              uses: softprops/action-gh-release@v1
+              with:
+                  files: main.pdf
+                  tag_name: v${{ github.run_number }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: 📎 Upload Other PDFs to Release
+              uses: softprops/action-gh-release@v1
+              with:
+                  files: cheatsheet.pdf
+                  tag_name: v${{ github.run_number }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

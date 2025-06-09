@@ -1,15 +1,14 @@
-#import "@local/mytemplate:1.0.0": *
-#import "@preview/physica:0.9.2": *
+#import "@preview/scripst:1.1.1": *
 
-#show: project.with(
+#show: scripst.with(
   template: "book",
   title: "量子力学",
-  authors: (
+  author: (
     "Anzreww",
   ),
   time: "甲辰春夏于清华园",
   contents: true,
-  content_depth:3,
+  content-depth: 3,
 )
 
 #pagebreak(weak: true)

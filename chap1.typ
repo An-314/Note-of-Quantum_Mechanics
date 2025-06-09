@@ -1,4 +1,4 @@
-#import "@preview/physica:0.9.2": *
+#import "@preview/scripst:1.1.1": *
 
 = 量子力学的基本观念和历史简介
 
@@ -18,16 +18,16 @@
 波相长干涉还是相消干涉取决于它们的相位，振幅同相时相长干涉，反相时相消干涉。当波沿着几条路径从波源到达接收器，比如光的双缝干涉，一般会产生干涉图样。
 
 $
-&A_1 cos(k x - omega t + phi_1) + A_2 cos(k x - omega t + phi_2) \
-=& A_1 cos(phi_1) cos(k x - omega t) - A_1 sin(phi_1) sin(k x - omega t) + A_2 cos(phi_2) cos(k x - omega t) - A_2 sin(phi_2) sin(k x - omega t) \
-=& (A_1 cos(phi_1) + A_2 cos(phi_2)) cos(k x - omega t) - (A_1 sin(phi_1) + A_2 sin(phi_2)) sin(k x - omega t)\
-=& A cos(k x - omega t + phi)
+  &A_1 cos(k x - omega t + phi_1) + A_2 cos(k x - omega t + phi_2) \
+  =& A_1 cos(phi_1) cos(k x - omega t) - A_1 sin(phi_1) sin(k x - omega t) + A_2 cos(phi_2) cos(k x - omega t) - A_2 sin(phi_2) sin(k x - omega t) \
+  =& (A_1 cos(phi_1) + A_2 cos(phi_2)) cos(k x - omega t) - (A_1 sin(phi_1) + A_2 sin(phi_2)) sin(k x - omega t)\
+  =& A cos(k x - omega t + phi)
 $
 
 其中$A$是干涉后的振幅，满足
 
 $
-A = sqrt(A_1^2 + A_2^2 + 2 A_1 A_2 cos(phi_1 - phi_2)) 
+  A = sqrt(A_1^2 + A_2^2 + 2 A_1 A_2 cos(phi_1 - phi_2))
 $
 
 这就证明了，两个波长与角频率相同的波，可以发生干涉，干涉的结果取决于两个波的相位差。
@@ -53,7 +53,7 @@ $
 
 衍射的极大值出现在：
 $
-n lambda = d sin theta
+  n lambda = d sin theta
 $
 
 #figure(
@@ -76,34 +76,34 @@ $
 
 其中$Z$是配分函数：
 $
-Z = sum_(n=0)^(oo) e^(-n epsilon / k T) = 1 / (1 - e^(-epsilon / (k T)))
+  Z = sum_(n=0)^(oo) e^(-n epsilon / k T) = 1 / (1 - e^(-epsilon / (k T)))
 $
 
 振子的平均能量为：
 $
-<E> &= sum_(n=0)^(oo) n epsilon e^((-n epsilon) / (k T)) / Z \=^(beta = 1/(k T)) 1/Z sum_(n=0)^(oo) n epsilon e^(-n epsilon beta)\= 1/Z sum_(n=0)^(oo) (- diff / (diff beta)) e^(-n epsilon beta) \= -1/Z  diff / (diff beta) sum_(n=0)^(oo) e^(-n epsilon beta) \
-&= -1/Z  diff / (diff beta) Z = - diff / (diff beta) ln Z = diff / (diff beta) ln 1/Z = diff / (diff beta) ln (1 - e^(-epsilon / (k T))) = epsilon / (e^(epsilon / (k T)) - 1) -> k T
+  <E> &= sum_(n=0)^(oo) n epsilon e^((-n epsilon) / (k T)) / Z \=^(beta = 1 / (k T)) 1 / Z sum_(n=0)^(oo) n epsilon e^(-n epsilon beta)\= 1 / Z sum_(n=0)^(oo) (- diff / (diff beta)) e^(-n epsilon beta) \= -1 / Z diff / (diff beta) sum_(n=0)^(oo) e^(-n epsilon beta) \
+  &= -1 / Z diff / (diff beta) Z = - diff / (diff beta) ln Z = diff / (diff beta) ln 1 / Z = diff / (diff beta) ln (1 - e^(-epsilon / (k T))) = epsilon / (e^(epsilon / (k T)) - 1) -> k T
 $
 高温与经典结果一致，符合能量均分定理。
 
-*能量均分定理*：热平衡下每个运动自由度的独立平方项的平均能量为 $1/2 k T$
+*能量均分定理*：热平衡下每个运动自由度的独立平方项的平均能量为 $1 / 2 k T$
 
 _证明_：如果振子能量是连续（经典力学）的，那么
 $
-Z = integral_0^(oo) e^(-epsilon / (k T)) d epsilon = k T
+  Z = integral_0^(oo) e^(-epsilon / (k T)) d epsilon = k T
 $
 从而
 $
-<E> = 1/(k T) integral_0^(oo) epsilon e^(-epsilon / (k T)) d epsilon = k T
+  <E> = 1 / (k T) integral_0^(oo) epsilon e^(-epsilon / (k T)) d epsilon = k T
 $
 
 1 mol晶格总能量为：
 $
-U = 3 N_A <E> = 3 N_A epsilon/(e^(epsilon / (k T)) - 1)
+  U = 3 N_A <E> = 3 N_A epsilon / (e^(epsilon / (k T)) - 1)
 $
 这是Einstein模型的结果。可以计算到晶体摩尔热容：
 $
-C = (diff U) / (diff T) = 3 N_A epsilon^2 e^(epsilon / (k T)) / (k T^2 (e^(epsilon / (k T)) - 1)^2)
+  C = (diff U) / (diff T) = 3 N_A epsilon^2 e^(epsilon / (k T)) / (k T^2 (e^(epsilon / (k T)) - 1)^2)
 $
 在$T -> oo$时，$C -> 3 N_A k$，符合经典结果。但是在低温时，$C -> 0$，与实验不符。
 
@@ -115,21 +115,21 @@ $
 
 *吸收本领$a(nu, T)$*：在温度 $T$ 下，入射频率在$nu -> nu+"d "nu$范围内被物体吸收的辐射能和总入射能量的比值。
 
-*基尔霍夫定律 (Kirchhoff) *：在热力学平衡的条件下，物体的辐射本领和吸收本领之比$F(nu, T) = r(nu, T)/a(nu, T)$是一个只与频率和温度有关的函数，与物体的材料和形状无关。_一个物体的辐射本领越强，它的吸收本领也越强，反之亦然。_
+*基尔霍夫定律 (Kirchhoff) *：在热力学平衡的条件下，物体的辐射本领和吸收本领之比$F(nu, T) = r(nu, T) / a(nu, T)$是一个只与频率和温度有关的函数，与物体的材料和形状无关。_一个物体的辐射本领越强，它的吸收本领也越强，反之亦然。_
 
 *黑体*：$a = 1$，吸收所有入射的辐射。黑体的辐射本领称为*黑体辐射*。
 
 *黑体辐射的能量分布*：黑体辐射（或称“空腔辐射”）的特征可以用“空腔辐射”的空间能量密度（即单位体积中的辐射场能量）按频率（或波长）的分布来描写:
 $
-rho(nu) "d "nu = "空腔辐射的单位体积中频率在"nu -> nu+"d "nu"范围内的能量密度"
+  rho(nu) "d "nu = "空腔辐射的单位体积中频率在"nu -> nu+"d "nu"范围内的能量密度"
 $
 根据经典统计和电磁学，热平衡时空腔内电磁场以驻波形式存在，单位体积在$nu -> nu+"d "nu$范围内的驻波模式个数（简并度）为：
 $
-n(nu) "d "nu = (8 pi nu^2) / c^3 "d "nu
+  n(nu) "d "nu = (8 pi nu^2) / c^3 "d "nu
 $
 再根据经典力学中每个振子平均能量为$k T$，得到
 $
-rho(nu) "d "nu = (8 pi  k T) / c^3 nu^2 "d "nu
+  rho(nu) "d "nu = (8 pi k T) / c^3 nu^2 "d "nu
 $
 这就是*Rayleigh-Jeans(瑞利-金斯)公式*。
 
@@ -137,27 +137,27 @@ _证明：_下面计算驻波模式
 
 _三维驻波形式：$cos(k_x x + phi_x)cos(k_y y + pi_y)cos(k_z z + phi_z)cos(omega t)$，其中$k_x = n_x pi / L_x$，$k_y = n_y pi / L_y$，$k_z = n_z pi / L_z$，$n_x, n_y, n_z$为正整数。_
 
-_驻波模式个数：考虑边长为$L$的立方体内的电磁驻波，处于某一波矢$k$的电磁波在波矢空间中表示为一个状态点，相邻点的距离为$pi/L$_
+_驻波模式个数：考虑边长为$L$的立方体内的电磁驻波，处于某一波矢$k$的电磁波在波矢空间中表示为一个状态点，相邻点的距离为$pi / L$_
 $
-k_i = n_i pi / L
+  k_i = n_i pi / L
 $
 这样可以得到波矢空间中离散分布的合法状态点，每个状态点对应一个驻波模式。现在求$nu -> nu + "d "nu$范围内的驻波模式个数。
 
 而
 $
-k = 2 pi nu / c
+  k = 2 pi nu / c
 $
-我们认为这些状态点被立方体包裹，这些立方体中心的距离是$pi/L$，所以在$nu -> nu + "d "nu$范围内的驻波模式个数为($k_i>0$)：
+我们认为这些状态点被立方体包裹，这些立方体中心的距离是$pi / L$，所以在$nu -> nu + "d "nu$范围内的驻波模式个数为($k_i>0$)：
 $
-N(nu) "d "nu = 1/8 (4 pi k^2) / (pi/L)^3 "d "k = L^3 (4 pi nu^2 "d "nu)/c^3
+  N(nu) "d "nu = 1 / 8 (4 pi k^2) / (pi / L)^3 "d "k = L^3 (4 pi nu^2 "d "nu) / c^3
 $
 从而单位体积内的驻波模式个数为：
 $
-n(nu) "d "nu = (4 pi nu^2) / c^3 "d "nu
+  n(nu) "d "nu = (4 pi nu^2) / c^3 "d "nu
 $
 再乘上*$B,H$*矢量两个偏振的自由度，才是真正的驻波模式个数：
 $
-n(nu) "d "nu = (8 pi nu^2) / c^3 "d "nu
+  n(nu) "d "nu = (8 pi nu^2) / c^3 "d "nu
 $
 
 #figure(
@@ -169,13 +169,13 @@ $
 
 *Wien公式*（1894，依据高温试验数据的经验规律）：不同温度下黑体辐射的能量密度与频率的关系
 $
-rho(nu) "d "nu = c_1 nu^3 e^((-c_2 nu )/ T) "d "nu
+  rho(nu) "d "nu = c_1 nu^3 e^((-c_2 nu ) / T) "d "nu
 $
 其中$c_1$和$c_2$是常数。
 
 *Wien位移定律*：单位体积辐射能量密度$rho(nu)$的最大值所对应的波长$lambda_m$与温度有如下关系:
 $
-lambda_m T = b
+  lambda_m T = b
 $
 其中$b = 2.898 times 10^(-3) "m·K"$。
 
@@ -190,17 +190,17 @@ $
 
 谐振子的能量只能是$h nu$的整数倍($h$为Planck常数)，谐振子能级分立情况下，平均能量为（参见晶体热容）：
 $
-<E> = h nu / (e^((h nu )/ (k T)) - 1)
+  <E> = h nu / (e^((h nu ) / (k T)) - 1)
 $
 用这个振子平均能量代替Rayleigh-Jeans公式中的$k T$得
 $
-rho(nu) "d "nu = (8 pi nu^2) / c^3 (h nu) / (e^((h nu )/ (k_B T)) - 1) "d "nu
+  rho(nu) "d "nu = (8 pi nu^2) / c^3 (h nu) / (e^((h nu ) / (k_B T)) - 1) "d "nu
 $
 这就是*Planck辐射公式*。其中$c$是光速，$h$是Planck常数，$k_B$是玻尔兹曼常数。
 
 $
-h = 6.626 * 10^(-34) "J s"\
-h c approx 5/4 e"V "mu"m"
+  h = 6.626 * 10^(-34) "J s"\
+  h c approx 5 / 4 e"V "mu"m"
 $
 
 Planck公式与实验完全符合，在高频和低频极限下分别过渡到Wien公式和Rayleigh-Jeans公式。
@@ -216,13 +216,13 @@ Planck公式与实验完全符合，在高频和低频极限下分别过渡到Wi
 
 提出光量子(light quantum)的概念，辐射场是由光量子组成，每个光量子能量与辐射频率的关系为：
 $
-E = h nu
+  E = h nu
 $
 光量子的能量是分立的，与频率有关，与辐射场的强度无关。
 
 当光照射到金属表面时，光量子的能量立刻被金属中的自由电子所吸收，但只有当光的频率足够大时，电子才能克服脱出功而逸出金属表面，逸出的光电子的能量为：
 $
-E_e = h nu - W_0
+  E_e = h nu - W_0
 $
 其中$W_0$是金属的逸出功。
 
@@ -230,19 +230,19 @@ $
 
 光子的静止质量是零，它的能量-动量关系是：
 $
-E = p c
+  E = p c
 $
 而光子的能量是
 $
-E = h nu
+  E = h nu
 $
 由相对论关系：
 $
-E^2 = (p c)^2 + (m c^2)^2
+  E^2 = (p c)^2 + (m c^2)^2
 $
 得到光子的动量为：
 $
-p = (h nu) / c = h / lambda
+  p = (h nu) / c = h / lambda
 $
 其中$lambda = c / nu$是光子的波长。这被称为*Planck - Einstein关系*，连接了粒子性和波动性。
 
@@ -259,17 +259,17 @@ _依据经典理论，在频率为$ω$的电磁场下，原来静止的电子将
   ],
 )
 
-根据动量守恒，$"入射光子的动量"="散射光子的动量"+"反冲电子的动量"$，矢量合成三角形的余弦定理给出: 
+根据动量守恒，$"入射光子的动量"="散射光子的动量"+"反冲电子的动量"$，矢量合成三角形的余弦定理给出:
 $
-p_e^2 = (h/c)^2(nu^2 + nu'^2 - 2 nu nu' cos theta)
+  p_e^2 = (h / c)^2(nu^2 + nu'^2 - 2 nu nu' cos theta)
 $
 其中$nu$是入射光子的频率，$nu'$是散射光子的频率，$theta$是散射角，$p_e$是反冲电子的动量。由能量守恒：
 $
-h nu + m_e c^2 = h nu' + sqrt(m_e^2 c^4 + p_e^2 c^2)
+  h nu + m_e c^2 = h nu' + sqrt(m_e^2 c^4 + p_e^2 c^2)
 $
 其中$m_e$是电子的静止质量。这两个方程可以得到：
 $
-lambda' - lambda = h / m_e c (1 - cos theta)
+  lambda' - lambda = h / m_e c (1 - cos theta)
 $
 与实验结果符合。
 
@@ -288,17 +288,17 @@ Compton实验的意义：
 
 #align(center)[
   #table(
-  columns: (auto, auto, auto),
-  inset: 10pt,
-  align: horizon,
-  [低能 (< 1 keV) ],[中能 (0 keV - 1 MeV)],[高能 (> 1 MeV)],
-  [瑞利散射、光电效应],[康普顿散射],[产生正负电子对]
-)
+    columns: (auto, auto, auto),
+    inset: 10pt,
+    align: horizon,
+    [低能 (< 1 keV) ], [中能 (0 keV - 1 MeV)], [高能 (> 1 MeV)],
+    [瑞利散射、光电效应], [康普顿散射], [产生正负电子对],
+  )
 ]
 
 == 微观量子特性的体现
 
-- 电子绕原子核转动却不辐射电磁波能量（直至最后落入原子核中） 
+- 电子绕原子核转动却不辐射电磁波能量（直至最后落入原子核中）
 - 原子核磁矩在均匀磁场中进行拉莫进动却不辐射电磁波能量（直至最后磁矩与磁场同向）
 - 低能粒子在半径为$a$的$3$维无限高球势垒上散射的横截面积为$4π a^2$（经典为$π a^2$）
 这些现象都不能用经典力学解释。
@@ -307,16 +307,16 @@ Compton实验的意义：
 
 氢原子的光谱由许多分立的谱线组成，特征谱线的频率为(Rydberg, 1890)：
 $
-nu = R_H c (1/n_1^2 - 1/n_2^2), n_1<n_2 = 1, 2, 3, ...
+  nu = R_H c (1 / n_1^2 - 1 / n_2^2), n_1<n_2 = 1, 2, 3, ...
 $
 其中$R_H = 1.097 * 10^7 m^(-1)$是Rydberg常数。
 
 它满足“并合规则”：若$nu_1$和$nu_2$在特征光谱中，则有时$nu_1 + nu_2$ 和 $|nu_1 -nu_2|$也在特征光谱中。
 
-“光谱项”：$nu_n = R_H c 1/n^2$可以认为每个光谱项对应着氢原子的一种能量状态。
+“光谱项”：$nu_n = R_H c 1 / n^2$可以认为每个光谱项对应着氢原子的一种能量状态。
 氢原子的能量就是不连续地变化的，其可能的值为：
 $
-E_n = -R_H h c / n^2
+  E_n = -R_H h c / n^2
 $
 这称为氢原子的能谱
 
@@ -330,19 +330,19 @@ Bohr模型的基本假设：
 1. 电子在原子中只能沿某些特殊的轨道运动，当电子在这些轨道上时，既不发出也不吸收光辐射（定态假设）
 2. 当电子由一个定态“跳”（跃迁）到另一个定态时会发出或吸收光辐射，其频率为（跃迁假设） ：
 $
-nu = (|E_2 - E_1|) / h
+  nu = (|E_2 - E_1|) / h
 $
 3. 电子在原子中的允许轨道满足下面的条件：它的轨道角动量是
 $
-L = h / (2 pi) =: hbar
+  L = h / (2 pi) =: hbar
 $
 的整数倍（量子化条件）
 
 经典力学加Bohr假设可以导致氢原子能级为：
 $
-E_n = -(mu k_1^2 e^4) / (2 h^2 n^2) ,n = 1, 2, 3, ...
+  E_n = -(mu k_1^2 e^4) / (2 h^2 n^2) ,n = 1, 2, 3, ...
 $
-其中$mu$是电子质量，$k_1= 1/(4 pi epsilon_0)$是库伦常数。
+其中$mu$是电子质量，$k_1= 1 / (4 pi epsilon_0)$是库伦常数。
 
 *Sommerfeld的量子化条件* (1915)：
 
@@ -350,26 +350,26 @@ $
 
 对于周期运动的自由度 $(q, p)$,
 $
-integral.cont p dot" d"q = n h
+  integral.cont p dot" d"q = n h
 $
 其中$q$是广义坐标，$p$是与之共轭的广义动量,积分对一个周期进行。
 
 _例：$x$方向的振动$x=A cos omega t$，$p_x = m v_x$，$q_x = x$，则_
 $
-integral.cont p_x dot" d"q_x &= integral.cont m v_x dot" d"x \
-&= m integral.cont ((diff x) /( diff t)) dot" d"x \
-&= 1/2 m omega^2 A^2 T\
-&= 1/2 k A^2 T\
-&= E T\
-&= n_r h
+  integral.cont p_x dot" d"q_x &= integral.cont m v_x dot" d"x \
+  &= m integral.cont ((diff x) / ( diff t)) dot" d"x \
+  &= 1 / 2 m omega^2 A^2 T\
+  &= 1 / 2 k A^2 T\
+  &= E T\
+  &= n_r h
 $
 可以得到
 $
-E = n h / T = n h nu
+  E = n h / T = n h nu
 $
 和氢原子的严格结果
 $
-E = (n + 1/2) h nu
+  E = (n + 1 / 2) h nu
 $
 很接近。
 
@@ -378,39 +378,39 @@ $
 Planck-Einstain“光量子假说”：
 
 $
-cases(
-E &= h nu,
-p &= h / lambda
-) 
-" "
-cases(
-E &= hbar omega,
-p &= hbar k
-)
+  cases(
+    E &= h nu,
+    p &= h / lambda
+  )
+  " "
+  cases(
+    E &= hbar omega,
+    p &= hbar k
+  )
 $
 建立了波动性-粒子性之间的关系，de Broglie假设：
 $
-cases(
-E &= h nu = p^2 / (2 m),
-p &= h / lambda
-)
-" "
-cases(
-E &= hbar omega = p^2 / (2 m),
-arrow(p) &= hbar arrow(k)
-)
+  cases(
+    E &= h nu = p^2 / (2 m),
+    p &= h / lambda
+  )
+  " "
+  cases(
+    E &= hbar omega = p^2 / (2 m),
+    arrow(p) &= hbar arrow(k)
+  )
 $
 由粒子性决定波动性。
 
 *波函数*：
 
 $
-psi(arrow(r), t) = A e^(i (arrow(k) dot arrow(r) - omega t))
+  psi(arrow(r), t) = A e^(i (arrow(k) dot arrow(r) - omega t))
 $
 
 代入de Broglie关系成为
 $
-psi(arrow(r), t) = A e^(i/hbar (arrow(p) dot arrow(r) - E t))
+  psi(arrow(r), t) = A e^(i / hbar (arrow(p) dot arrow(r) - E t))
 $
 
 波函数虚部#footnote[后面在多粒子量子纠缠实验中也证实了，波函数的虚部不可或缺。]的意义体现在计算概率密度时，我们不是取波函数的实部的平方，而是求实部、虚部的平方之和（模方）。
