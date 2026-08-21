@@ -1,4 +1,4 @@
-#import "@preview/scripst:1.1.1": *
+#import "@preview/scripst:1.1.2": *
 
 = 量子力学的基本观念和历史简介
 
@@ -81,8 +81,8 @@ $
 
 振子的平均能量为：
 $
-  <E> &= sum_(n=0)^(oo) n epsilon e^((-n epsilon) / (k T)) / Z \=^(beta = 1 / (k T)) 1 / Z sum_(n=0)^(oo) n epsilon e^(-n epsilon beta)\= 1 / Z sum_(n=0)^(oo) (- diff / (diff beta)) e^(-n epsilon beta) \= -1 / Z diff / (diff beta) sum_(n=0)^(oo) e^(-n epsilon beta) \
-  &= -1 / Z diff / (diff beta) Z = - diff / (diff beta) ln Z = diff / (diff beta) ln 1 / Z = diff / (diff beta) ln (1 - e^(-epsilon / (k T))) = epsilon / (e^(epsilon / (k T)) - 1) -> k T
+  <E> &= sum_(n=0)^(oo) n epsilon e^((-n epsilon) / (k T)) / Z \=^(beta = 1 / (k T)) 1 / Z sum_(n=0)^(oo) n epsilon e^(-n epsilon beta)\= 1 / Z sum_(n=0)^(oo) (- "d" / ("d" beta)) e^(-n epsilon beta) \= -1 / Z "d" / ("d" beta) sum_(n=0)^(oo) e^(-n epsilon beta) \
+  &= -1 / Z "d" / ("d" beta) Z = - "d" / ("d" beta) ln Z = "d" / ("d" beta) ln 1 / Z = "d" / ("d" beta) ln (1 - e^(-epsilon / (k T))) = epsilon / (e^(epsilon / (k T)) - 1) -> k T
 $
 高温与经典结果一致，符合能量均分定理。
 
@@ -103,7 +103,7 @@ $
 $
 这是Einstein模型的结果。可以计算到晶体摩尔热容：
 $
-  C = (diff U) / (diff T) = 3 N_A epsilon^2 e^(epsilon / (k T)) / (k T^2 (e^(epsilon / (k T)) - 1)^2)
+  C = ("d" U) / ("d" T) = 3 N_A epsilon^2 e^(epsilon / (k T)) / (k T^2 (e^(epsilon / (k T)) - 1)^2)
 $
 在$T -> oo$时，$C -> 3 N_A k$，符合经典结果。但是在低温时，$C -> 0$，与实验不符。
 
@@ -111,9 +111,9 @@ $
 
 *热辐射*：所有物体都有热辐射，这种热辐射是一定波长范围内的电磁波。而物体也能反射和吸收外来的辐射。温度升高时，辐射的颜色（频率）会随之发生变化。
 
-*辐射本领$r(nu, T)$*：在温度 $T$ 下，物体单位表面上、单位时间内、频率在$nu -> nu+"d "nu$范围内向外辐射的能量。
+*辐射本领$r(nu, T)$*：在温度 $T$ 下，物体单位表面上、单位时间内、频率在$nu -> nu+"d"nu$范围内向外辐射的能量。
 
-*吸收本领$a(nu, T)$*：在温度 $T$ 下，入射频率在$nu -> nu+"d "nu$范围内被物体吸收的辐射能和总入射能量的比值。
+*吸收本领$a(nu, T)$*：在温度 $T$ 下，入射频率在$nu -> nu+"d"nu$范围内被物体吸收的辐射能和总入射能量的比值。
 
 *基尔霍夫定律 (Kirchhoff) *：在热力学平衡的条件下，物体的辐射本领和吸收本领之比$F(nu, T) = r(nu, T) / a(nu, T)$是一个只与频率和温度有关的函数，与物体的材料和形状无关。_一个物体的辐射本领越强，它的吸收本领也越强，反之亦然。_
 
@@ -121,15 +121,15 @@ $
 
 *黑体辐射的能量分布*：黑体辐射（或称“空腔辐射”）的特征可以用“空腔辐射”的空间能量密度（即单位体积中的辐射场能量）按频率（或波长）的分布来描写:
 $
-  rho(nu) "d "nu = "空腔辐射的单位体积中频率在"nu -> nu+"d "nu"范围内的能量密度"
+  rho(nu) "d"nu = "空腔辐射的单位体积中频率在"nu -> nu+"d"nu"范围内的能量密度"
 $
-根据经典统计和电磁学，热平衡时空腔内电磁场以驻波形式存在，单位体积在$nu -> nu+"d "nu$范围内的驻波模式个数（简并度）为：
+根据经典统计和电磁学，热平衡时空腔内电磁场以驻波形式存在，单位体积在$nu -> nu+"d"nu$范围内的驻波模式个数（简并度）为：
 $
-  n(nu) "d "nu = (8 pi nu^2) / c^3 "d "nu
+  n(nu) "d"nu = (8 pi nu^2) / c^3 "d"nu
 $
 再根据经典力学中每个振子平均能量为$k T$，得到
 $
-  rho(nu) "d "nu = (8 pi k T) / c^3 nu^2 "d "nu
+  rho(nu) "d"nu = (8 pi k T) / c^3 nu^2 "d"nu
 $
 这就是*Rayleigh-Jeans(瑞利-金斯)公式*。
 
@@ -141,23 +141,23 @@ _驻波模式个数：考虑边长为$L$的立方体内的电磁驻波，处于�
 $
   k_i = n_i pi / L
 $
-这样可以得到波矢空间中离散分布的合法状态点，每个状态点对应一个驻波模式。现在求$nu -> nu + "d "nu$范围内的驻波模式个数。
+这样可以得到波矢空间中离散分布的合法状态点，每个状态点对应一个驻波模式。现在求$nu -> nu + "d"nu$范围内的驻波模式个数。
 
 而
 $
   k = 2 pi nu / c
 $
-我们认为这些状态点被立方体包裹，这些立方体中心的距离是$pi / L$，所以在$nu -> nu + "d "nu$范围内的驻波模式个数为($k_i>0$)：
+我们认为这些状态点被立方体包裹，这些立方体中心的距离是$pi / L$，所以在$nu -> nu + "d"nu$范围内的驻波模式个数为($k_i>0$)：
 $
-  N(nu) "d "nu = 1 / 8 (4 pi k^2) / (pi / L)^3 "d "k = L^3 (4 pi nu^2 "d "nu) / c^3
+  N(nu) "d"nu = 1 / 8 (4 pi k^2) / (pi / L)^3 "d"k = L^3 (4 pi nu^2 "d"nu) / c^3
 $
 从而单位体积内的驻波模式个数为：
 $
-  n(nu) "d "nu = (4 pi nu^2) / c^3 "d "nu
+  n(nu) "d"nu = (4 pi nu^2) / c^3 "d"nu
 $
 再乘上*$B,H$*矢量两个偏振的自由度，才是真正的驻波模式个数：
 $
-  n(nu) "d "nu = (8 pi nu^2) / c^3 "d "nu
+  n(nu) "d"nu = (8 pi nu^2) / c^3 "d"nu
 $
 
 #figure(
@@ -169,7 +169,7 @@ $
 
 *Wien公式*（1894，依据高温试验数据的经验规律）：不同温度下黑体辐射的能量密度与频率的关系
 $
-  rho(nu) "d "nu = c_1 nu^3 e^((-c_2 nu ) / T) "d "nu
+  rho(nu) "d"nu = c_1 nu^3 e^((-c_2 nu ) / T) "d"nu
 $
 其中$c_1$和$c_2$是常数。
 
@@ -194,7 +194,7 @@ $
 $
 用这个振子平均能量代替Rayleigh-Jeans公式中的$k T$得
 $
-  rho(nu) "d "nu = (8 pi nu^2) / c^3 (h nu) / (e^((h nu ) / (k_B T)) - 1) "d "nu
+  rho(nu) "d"nu = (8 pi nu^2) / c^3 (h nu) / (e^((h nu ) / (k_B T)) - 1) "d"nu
 $
 这就是*Planck辐射公式*。其中$c$是光速，$h$是Planck常数，$k_B$是玻尔兹曼常数。
 
@@ -356,12 +356,12 @@ $
 
 _例：$x$方向的振动$x=A cos omega t$，$p_x = m v_x$，$q_x = x$，则_
 $
-  integral.cont p_x dot" d"q_x &= integral.cont m v_x dot" d"x \
-  &= m integral.cont ((diff x) / ( diff t)) dot" d"x \
-  &= 1 / 2 m omega^2 A^2 T\
-  &= 1 / 2 k A^2 T\
-  &= E T\
-  &= n_r h
+  integral.cont p_x dot" d"q_x & = integral.cont m v_x dot" d"x \
+                               & = m integral.cont (("d" x) / ( "d" t)) dot" d"x \
+                               & = 1 / 2 m omega^2 A^2 T \
+                               & = 1 / 2 k A^2 T \
+                               & = E T \
+                               & = n_r h
 $
 可以得到
 $
@@ -379,25 +379,25 @@ Planck-Einstain“光量子假说”：
 
 $
   cases(
-    E &= h nu,
-    p &= h / lambda
+    E & = h nu,
+    p & = h / lambda
   )
   " "
   cases(
-    E &= hbar omega,
-    p &= hbar k
+    E & = hbar omega,
+    p & = hbar k
   )
 $
 建立了波动性-粒子性之间的关系，de Broglie假设：
 $
   cases(
-    E &= h nu = p^2 / (2 m),
-    p &= h / lambda
+    E & = h nu = p^2 / (2 m),
+    p & = h / lambda
   )
   " "
   cases(
-    E &= hbar omega = p^2 / (2 m),
-    arrow(p) &= hbar arrow(k)
+    E & = hbar omega = p^2 / (2 m),
+    arrow(p) & = hbar arrow(k)
   )
 $
 由粒子性决定波动性。

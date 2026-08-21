@@ -1,4 +1,4 @@
-#import "@preview/scripst:1.1.1": *
+#import "@preview/scripst:1.1.2": *
 
 = ⼒学量算符与波函数
 
@@ -26,7 +26,7 @@ $
     hat(arrow(p)) = -i hbar nabla
   $
   $
-    hat(p)_x - i hbar (diff) / (diff x)
+    hat(p)_x - i hbar ("d") / ("d" x)
   $
 - *位置算符*
   $
@@ -294,13 +294,13 @@ $
 
 *Hermitian算符的本征值都是实数*
 $
-  hat(F) psi_lambda &= lambda psi_lambda\
-  (hat(F) psi_lambda)^* &= lambda^* psi_lambda^*\
+      hat(F) psi_lambda & = lambda psi_lambda \
+  (hat(F) psi_lambda)^* & = lambda^* psi_lambda^* \
 $
 代入定义式
 $
-  lambda integral psi_lambda^* psi_lambda dd(V) &= lambda^* integral psi_lambda psi_lambda^* dd(V)\
-  lambda &= lambda^*
+  lambda integral psi_lambda^* psi_lambda dd(V) & = lambda^* integral psi_lambda psi_lambda^* dd(V) \
+                                         lambda & = lambda^*
 $
 从而得到$lambda$是实数。由于这个定理，我们*要求所有的物理量（或者称为“可测量量”）的算符都是Hermitian算符*（但是反过来不一定）。
 
@@ -339,11 +339,11 @@ $
 
 *Hermitian算符的本征函数对应于不同本征值的本征函数是正交的*：
 $
-  hat(F) psi_lambda &= lambda psi_lambda\
-  hat(F) psi_mu &= mu psi_mu\
-  lambda integral psi_lambda^* psi_mu dd(V) &= mu integral psi_lambda psi_mu^* dd(V)\
-  (lambda - mu) integral psi_lambda^* psi_mu dd(V) &= 0\
-  integral psi_lambda^* psi_mu dd(V) &= 0
+                                 hat(F) psi_lambda & = lambda psi_lambda \
+                                     hat(F) psi_mu & = mu psi_mu \
+         lambda integral psi_lambda^* psi_mu dd(V) & = mu integral psi_lambda psi_mu^* dd(V) \
+  (lambda - mu) integral psi_lambda^* psi_mu dd(V) & = 0 \
+                integral psi_lambda^* psi_mu dd(V) & = 0
 $
 说明了Hermitian算符的本征函数是正交的。
 
@@ -450,8 +450,8 @@ $
 
 对波函数，可以按照位置算符的本征函数展开：
 $
-  psi(arrow(r)) &= sum_arrow(r_0) c_(arrow(r_0)) psi_(arrow(r_0)) psi_(arrow(r)) \
-  &= integral c_(arrow(r_0)) delta(arrow(r) - arrow(r_0)) dd(r_0) = c_(arrow(r))
+  psi(arrow(r)) & = sum_arrow(r_0) c_(arrow(r_0)) psi_(arrow(r_0)) psi_(arrow(r)) \
+                & = integral c_(arrow(r_0)) delta(arrow(r) - arrow(r_0)) dd(r_0) = c_(arrow(r))
 $
 这就是波函数的位置表象。
 
@@ -590,9 +590,9 @@ $
 
 _证明：_
 $
-  [hat(x)_i, hat(p)_j] psi &= hat(x)_i hat(p)_j psi - hat(p)_j hat(x)_i psi\
-  &= - i hbar (x_i partial / (partial x_j) psi - partial / (partial x_j) (x_i psi))\
-  &= i hbar delta_(i j) psi
+  [hat(x)_i, hat(p)_j] psi & = hat(x)_i hat(p)_j psi - hat(p)_j hat(x)_i psi \
+                           & = - i hbar (x_i partial / (partial x_j) psi - partial / (partial x_j) (x_i psi)) \
+                           & = i hbar delta_(i j) psi
 $
 
 #newpara()
@@ -693,12 +693,12 @@ $
 
 总几率不变的验证: 测量$hat(F)$得到各种可能测量值的总几率为
 $
-  sum_n w(lambda_n) &= sum_n |integral phi_n^* psi dd(x)|^2 \
-  &= sum_n integral phi_n (x) psi^*_n (x) dd(x) integral psi (x') phi_n^*(x') dd(x') \
-  &= integral.double (sum_n phi_n (x)psi_n^* (x')) phi_n^*(x) psi (x') dd(x)dd(x') \
-  &= integral.double delta(x - x') psi^* (x) psi (x') dd(x)dd(x') \
-  &= integral delta(x - x) (integral psi^* (x) psi (x') dd(x)) dd(x') \
-  &= integral psi^* (x) psi (x) dd(x) = 1
+  sum_n w(lambda_n) & = sum_n |integral phi_n^* psi dd(x)|^2 \
+                    & = sum_n integral phi_n (x) psi^*_n (x) dd(x) integral psi (x') phi_n^*(x') dd(x') \
+                    & = integral.double (sum_n phi_n (x)psi_n^* (x')) phi_n^*(x) psi (x') dd(x)dd(x') \
+                    & = integral.double delta(x - x') psi^* (x) psi (x') dd(x)dd(x') \
+                    & = integral delta(x - x) (integral psi^* (x) psi (x') dd(x)) dd(x') \
+                    & = integral psi^* (x) psi (x) dd(x) = 1
 $
 
 推广：
@@ -725,12 +725,12 @@ $
 可以定义力学量$F$的平均值为
 
 $
-  macron(F) &= sum_n lambda_n w(lambda_n) \
-  &= sum_n lambda_n |c_n|^2 \
-  &= sum_n integral phi_n (x) psi^*_n (x) dd(x) integral psi (x') (hat(F)phi_n (x'))^* dd(x') \
-  &= integral.double (sum_n phi_n (x)psi_n^* (x')) (hat(F)phi_n (x'))^* dd(x)dd(x') \
-  &= integral.double delta(x - x') psi^* (x) hat(F) psi (x') dd(x)dd(x') \
-  &= integral psi^* (x) hat(F) psi (x) dd(x)
+  macron(F) & = sum_n lambda_n w(lambda_n) \
+            & = sum_n lambda_n |c_n|^2 \
+            & = sum_n integral phi_n (x) psi^*_n (x) dd(x) integral psi (x') (hat(F)phi_n (x'))^* dd(x') \
+            & = integral.double (sum_n phi_n (x)psi_n^* (x')) (hat(F)phi_n (x'))^* dd(x)dd(x') \
+            & = integral.double delta(x - x') psi^* (x) hat(F) psi (x') dd(x)dd(x') \
+            & = integral psi^* (x) hat(F) psi (x) dd(x)
 $
 这个计算式的条件是$psi(x)$已经归一，即
 $
@@ -1166,8 +1166,8 @@ $l = 0,1,2,...$，对应SPDF态。对于给定的$l$，$m = -l, -l + 1, ..., l$�
 7. 两点距离倒数的展开：
   $
     1 / abs(arrow(r) - arrow(r')) = 1 / r (1 + r'^2 / r^2 - 2 r' / r cos gamma)^(-1 / 2) = cases(
-      1 / r sum_(l = 0)^oo (r' / r)^l P_l (cos gamma) &"if" r > r'\
-      1 / r' sum_(l = 0)^oo (r / r')^l P_l (cos gamma) &"if" r < r'
+       1 / r sum_(l = 0)^oo (r' / r)^l P_l (cos gamma) & "if" r > r' \
+      1 / r' sum_(l = 0)^oo (r / r')^l P_l (cos gamma) & "if" r < r'
     )
   $
   以及相应的积分：
@@ -1227,11 +1227,11 @@ $
 
 我们可以用时间演化算符作用在初始波函数上来得到此后任一时刻系统的波函数：
 $
-  psi(arrow(r), t) &= sum_n a_n (0) e^(-i E_n t / hbar) phi_n (arrow(r))\
-  &= sum_n a_n (0) e^(-i / hbar hat(H) t) phi_n (arrow(r))\
-  &= e^(-i / hbar hat(H) t) sum_n a_n (0) phi_n (arrow(r))\
-  &= e^(-i / hbar hat(H) t) psi(arrow(r), 0)\
-  &= hat(U)(t) psi(arrow(r), 0)
+  psi(arrow(r), t) & = sum_n a_n (0) e^(-i E_n t / hbar) phi_n (arrow(r)) \
+                   & = sum_n a_n (0) e^(-i / hbar hat(H) t) phi_n (arrow(r)) \
+                   & = e^(-i / hbar hat(H) t) sum_n a_n (0) phi_n (arrow(r)) \
+                   & = e^(-i / hbar hat(H) t) psi(arrow(r), 0) \
+                   & = hat(U)(t) psi(arrow(r), 0)
 $
 其中$hat(U)(t) = e^(-i / hbar hat(H) t)$是时间演化算符。
 
@@ -1244,7 +1244,7 @@ $
 $
 初始时刻的波包是一个高斯函数，它的宽度是$sigma$，时间$t$之后，波函数演化为
 $
-  psi(x, t) &= e^(-i / hbar hat(H) t) psi(x, 0)\
+  psi(x, t) & = e^(-i / hbar hat(H) t) psi(x, 0) \
 $
 其中*自由粒子的哈密顿算符的本征函数是平面波*：
 $
@@ -1274,9 +1274,9 @@ $
 
 对于位置算符的本征态$delta(x)$，对其做时间演化：
 $
-  e^( - i / hbar hat(H) t) delta(t) &= e^(- i / hbar hat(H) t) (1 / sqrt(2 pi))^2 integral e^(i k x) dd(k)\
-  &= 1 / (2 pi) integral e^(i k x - i (hbar k^2) / (2m) t) dd(k)\
-  &= sqrt(m / (2 pi i hbar t)) e^(-m x^2 / (2 i hbar t)) e^(-i pi / 4)
+  e^( - i / hbar hat(H) t) delta(t) & = e^(- i / hbar hat(H) t) (1 / sqrt(2 pi))^2 integral e^(i k x) dd(k) \
+                                    & = 1 / (2 pi) integral e^(i k x - i (hbar k^2) / (2m) t) dd(k) \
+                                    & = sqrt(m / (2 pi i hbar t)) e^(-m x^2 / (2 i hbar t)) e^(-i pi / 4)
 $
 似乎在无穷远处也能有概率，这是超光速的。这就证明Schrodinger方程是非相对论的，不能描述高速粒子，在此时不再适用。
 
@@ -1336,11 +1336,11 @@ $
 $
 所以
 $
-  dd("") / dd(t) a_n (t) &= integral psi^*_n dd("") / dd(t) psi dd(tau)\
-  &= integral psi^*_n 1 / (i hbar) hat(H) psi dd(tau)\
-  &= 1 / (i hbar) integral (hat(H) psi_n)^* psi_n dd(tau)\
-  &= 1 / (i hbar) E_n integral psi_n^* psi_n dd(tau)\
-  &= E_n / (i hbar) a_n (t)
+  dd("") / dd(t) a_n (t) & = integral psi^*_n dd("") / dd(t) psi dd(tau) \
+                         & = integral psi^*_n 1 / (i hbar) hat(H) psi dd(tau) \
+                         & = 1 / (i hbar) integral (hat(H) psi_n)^* psi_n dd(tau) \
+                         & = 1 / (i hbar) E_n integral psi_n^* psi_n dd(tau) \
+                         & = E_n / (i hbar) a_n (t)
 $
 同理有：
 $
@@ -1570,8 +1570,8 @@ $
 
 幺正算符包括单位算符$I$，如果幺正算符依赖于一个连续变化的参量$epsilon$（如空间旋转、时间平移等），即$hat(U) = hat(U)(epsilon)$，有如下性质
 $
-  hat(U)(0) &= I\
-  hat(U)(epsilon_1) hat(U)(epsilon_2) &= hat(U)(epsilon_1 + epsilon_2)\
+                            hat(U)(0) & = I \
+  hat(U)(epsilon_1) hat(U)(epsilon_2) & = hat(U)(epsilon_1 + epsilon_2) \
 $
 则在$epsilon→0$时，$hat(U)$能展开为
 $
@@ -1639,8 +1639,8 @@ $
 
 用幺正算符实现的波函数和算符的变换称为幺正变换：
 $
-  psi &-> &psi' = hat(U) psi\
-  hat(A) &-> &hat(A') = hat(U) hat(A) hat(U)^dagger
+     psi & -> &                     psi' = hat(U) psi \
+  hat(A) & -> & hat(A') = hat(U) hat(A) hat(U)^dagger
 $
 与经典物理中的坐标变换相似，幺正变换不改变系统的物理规律（算符方程、对易关系、平均值及概率）：
 $
@@ -1695,8 +1695,8 @@ $
 #newpara()
 傅里叶幺正变换对哈密顿算符的变换：
 $
-  hat(U) hat(H) hat(U)^dagger &= hat(U) (hat(p)^2 / (2m) + V(hat(x))) hat(U)^dagger\
-  &= p^2 / (2m) + V(i hbar dd("") / dd(p))
+  hat(U) hat(H) hat(U)^dagger & = hat(U) (hat(p)^2 / (2m) + V(hat(x))) hat(U)^dagger \
+                              & = p^2 / (2m) + V(i hbar dd("") / dd(p))
 $
 也就是说，在*坐标表象*中，哈密顿算符形式为
 $
@@ -1798,12 +1798,12 @@ $
 $
 对$psi$进行幺正变换$psi -> psi' = hat(U) psi$，得到
 $
-  i hbar partial / (partial t) psi' &= hat(H) psi'\
-  i hbar partial / (partial t) (hat(U) psi) &= hat(H) (hat(U) psi)\
+          i hbar partial / (partial t) psi' & = hat(H) psi' \
+  i hbar partial / (partial t) (hat(U) psi) & = hat(H) (hat(U) psi) \
 $
 用算符$hat(U)^(-1)$从左边作用于方程两边。因为我们一般考虑的幺正算符都是与时间无关的，所以$hat(U)^(-1)$可以越过时间偏导算符作用于右方
 $
-  i hbar hat(U)^(-1) partial / (partial t) psi' &= hat(U)^(-1) hat(H) hat(U) psi\
+  i hbar hat(U)^(-1) partial / (partial t) psi' & = hat(U)^(-1) hat(H) hat(U) psi \
 $
 与原薛定鄂方程作对比，同时注意到$psi$是薛定鄂方程的任意解，所以有
 $
@@ -1843,9 +1843,9 @@ $
 $
 对变化后的波函数做泰勒展开：
 $
-  psi(x, t - tau) &= sum^oo_(n=0) 1 / n! (- tau dd("") / dd(t))^n psi(x, t)\
-  &= sum^oo_(n=0) 1 / n! ((i tau) / hbar hat(H))^n psi(x, t)\
-  &= e^(i / hbar tau hat(H)) psi(x, t)
+  psi(x, t - tau) & = sum^oo_(n=0) 1 / n! (- tau dd("") / dd(t))^n psi(x, t) \
+                  & = sum^oo_(n=0) 1 / n! ((i tau) / hbar hat(H))^n psi(x, t) \
+                  & = e^(i / hbar tau hat(H)) psi(x, t)
 $
 用到了薛定鄂方程($hat(H)$不含时)：
 $
@@ -1867,10 +1867,10 @@ $
 
 设$t_1$时刻的波函数是能量本征态$psi(x, t_1) = phi_n(x) e^(-i E_n t_1 / hbar)$，在这个态下测得$E_n$的概率为100%，在$t_2$时刻下：
 $
-  psi(x, t_2) &=^"时间演化算符" e^(-i / hbar hat(H) (t_2 - t_1)) psi(x, t_1)\
-  &=^"时间平移算符" e^(i E_n (t_1 - t_2) / hbar) psi(x, t_1)\
-  &= psi(x, t_1 - (t_1 - t_2))\
-  &= psi(x, t_2)
+  psi(x, t_2) & =^"时间演化算符" e^(-i / hbar hat(H) (t_2 - t_1)) psi(x, t_1) \
+              & =^"时间平移算符" e^(i E_n (t_1 - t_2) / hbar) psi(x, t_1) \
+              & = psi(x, t_1 - (t_1 - t_2)) \
+              & = psi(x, t_2)
 $
 根据$hat(A) psi = A psi$时，$f(hat(A)) psi = f(A) psi$，有
 $
@@ -1892,9 +1892,9 @@ $
 $
 对变化后的波函数做泰勒展开：
 $
-  psi(arrow(r) - arrow(a)) &= sum^oo_(n=0) 1 / n! (- arrow(a) dot nabla)^n psi(arrow(r))\
-  &= e^(- i arrow(a) dot nabla) psi(arrow(r))\
-  &= e^(- i / hbar arrow(a) dot hat(arrow(p))) psi(arrow(r))
+  psi(arrow(r) - arrow(a)) & = sum^oo_(n=0) 1 / n! (- arrow(a) dot nabla)^n psi(arrow(r)) \
+                           & = e^(- i arrow(a) dot nabla) psi(arrow(r)) \
+                           & = e^(- i / hbar arrow(a) dot hat(arrow(p))) psi(arrow(r))
 $
 这里$hat(p)$是动量算符。得到空间平移算符：
 $
@@ -3074,9 +3074,9 @@ $
 $
 其中$R,P$是实函数，从而$j_r = j_theta =0$。
 $
-  j_phi &= (i e hbar) / (2 mu) 1 / (r sin theta) (psi^* partial / (partial phi) psi - psi partial / (partial phi) psi^*)\
-  &= (i e hbar) / (2 mu) (2 i m) / (r sin theta) abs(psi)^2\
-  &= - (e hbar m) / (mu r sin theta) |R_(n l) (r) P^m_l (cos theta)|^2
+  j_phi & = (i e hbar) / (2 mu) 1 / (r sin theta) (psi^* partial / (partial phi) psi - psi partial / (partial phi) psi^*) \
+        & = (i e hbar) / (2 mu) (2 i m) / (r sin theta) abs(psi)^2 \
+        & = - (e hbar m) / (mu r sin theta) |R_(n l) (r) P^m_l (cos theta)|^2
 $
 电流密度$j_phi$对应的磁矩为：
 $
@@ -3271,8 +3271,8 @@ $
 $
 其中$theta = theta(arrow(r))$为不显含时间的任意实函数，显然这一变换是幺正变换，也不改变薛定鄂方程：
 $
-  hat(H)' psi' &= e^(i theta) hat(H) e^(- i theta) e^(i theta) psi = e^(i theta) hat(H) psi\
-  &= i hbar partial / (partial t) psi'\
+  hat(H)' psi' & = e^(i theta) hat(H) e^(- i theta) e^(i theta) psi = e^(i theta) hat(H) psi \
+               & = i hbar partial / (partial t) psi' \
 $
 现在
 $
@@ -3832,23 +3832,23 @@ $
 
 设粒子在$t=0$时处于自旋量子态$ket(chi)$，则其在后续任意时刻$t$的自旋波函数可表示为
 $
-  ket(chi(t)) &= e^(- i / hbar t hat(H)) ket(chi(0))\
-  &= e^(- i (w_L t) / 2 arrow(sigma) dot arrow(e)_B) mat(a_0; b_0) sigma_z"表象"\
-  &= (cos(w_L / 2 t) - i sin(w_L / 2 t) arrow(sigma) dot arrow(e)_B ) mat(a_0; b_0)\
+  ket(chi(t)) & = e^(- i / hbar t hat(H)) ket(chi(0)) \
+              & = e^(- i (w_L t) / 2 arrow(sigma) dot arrow(e)_B) mat(a_0; b_0) sigma_z"表象" \
+              & = (cos(w_L / 2 t) - i sin(w_L / 2 t) arrow(sigma) dot arrow(e)_B ) mat(a_0; b_0) \
 $
 如果时间演化算符具有非0非对角矩阵元，则有可能出现自旋向上和向下的部分相互“*跃迁*”。
 
 例：取$arrow(B)$沿$x$轴方向，$ket(chi(0))$为自旋向上的$sigma_z$本征态，则
 $
-  ket(chi(t)) &= (cos(w_L / 2 t) - i sin(w_L / 2 t) sigma_x) mat(1; 0)\
-  &= mat(
-    cos(w_L / 2 t), - i sin(w_L / 2 t);
-    - i sin(w_L / 2 t), cos(w_L / 2 t)
-  ) mat(1; 0)\
-  &= mat(
-    cos(w_L / 2 t);
-    - i sin(w_L / 2 t)
-  )
+  ket(chi(t)) & = (cos(w_L / 2 t) - i sin(w_L / 2 t) sigma_x) mat(1; 0) \
+              & = mat(
+                  cos(w_L / 2 t), - i sin(w_L / 2 t);
+                  - i sin(w_L / 2 t), cos(w_L / 2 t)
+                ) mat(1; 0) \
+              & = mat(
+                  cos(w_L / 2 t);
+                  - i sin(w_L / 2 t)
+                )
 $
 这种系统周期性地在两种不同量子态间来回跃迁又称为*振荡*(oscillation)。粒子自旋出现振荡现象的原因是：$sigma_z$和哈密顿算符不对易，自旋态$ket(chi)$不是定态。
 
@@ -4098,21 +4098,21 @@ $
 $
 从而
 $
-  macron(S)_z &= hbar / (2(2l+1)) integral mat(
-    sqrt(j + m) Y_(l,m-1 / 2);
-    sqrt(j - m) Y_(l,m+1 / 2)
-  )^dagger sigma_z mat(
-    sqrt(j + m) Y_(l,m-1 / 2);
-    sqrt(j - m) Y_(l,m+1 / 2)
-  ) dd(tau)\
-  &= hbar / (2(2l+1)) integral mat(
-    sqrt(j + m) Y_(l,m-1 / 2);
-    sqrt(j - m) Y_(l,m+1 / 2)
-  )^dagger mat(
-    sqrt(j + m) Y_(l,m-1 / 2);
-    - sqrt(j - m) Y_(l,m+1 / 2)
-  ) dd(tau)\
-  &= (m hbar) / (2l+1)
+  macron(S)_z & = hbar / (2(2l+1)) integral mat(
+                  sqrt(j + m) Y_(l,m-1 / 2);
+                  sqrt(j - m) Y_(l,m+1 / 2)
+                )^dagger sigma_z mat(
+                  sqrt(j + m) Y_(l,m-1 / 2);
+                  sqrt(j - m) Y_(l,m+1 / 2)
+                ) dd(tau) \
+              & = hbar / (2(2l+1)) integral mat(
+                  sqrt(j + m) Y_(l,m-1 / 2);
+                  sqrt(j - m) Y_(l,m+1 / 2)
+                )^dagger mat(
+                  sqrt(j + m) Y_(l,m-1 / 2);
+                  - sqrt(j - m) Y_(l,m+1 / 2)
+                ) dd(tau) \
+              & = (m hbar) / (2l+1)
 $
 方法2：直接分解到本征态的形式
 $
@@ -4120,9 +4120,9 @@ $
 $
 从而
 $
-  macron(S)_z &= abs(C_1)^2 hbar / 2 - abs(C_2)^2 hbar / 2\
-  &= ((j+m) / (2l+1) - (j-m) / (2l+1)) hbar / 2\
-  &= (m hbar) / (2l+1)
+  macron(S)_z & = abs(C_1)^2 hbar / 2 - abs(C_2)^2 hbar / 2 \
+              & = ((j+m) / (2l+1) - (j-m) / (2l+1)) hbar / 2 \
+              & = (m hbar) / (2l+1)
 $
 #newpara()
 
@@ -4132,7 +4132,7 @@ $
 $
 首先由$hat(S)_z$与$hat(J)_z, hat(L)^2, hat(S)^2$对易，展开式中$m,l,1 / 2$量子数固定不变。而$hat(S)_z$与$hat(J)^2$不对易，用$hat(S)_z$的本征态展开：
 $
-  hat(S)_z ket(j m l 1 / 2) &= C_(l + 1 / 2) ket(l+1 / 2","m","l","1 / 2) + C_(l - 1 / 2) ket(l-1 / 2","m","l","1 / 2)
+  hat(S)_z ket(j m l 1 / 2) & = C_(l + 1 / 2) ket(l+1 / 2","m","l","1 / 2) + C_(l - 1 / 2) ket(l-1 / 2","m","l","1 / 2)
 $
 其实这是一个表象变换的问题，在旧基底（非耦合表象）中，$hat(S)_z$是对角化的。即在基底
 $
@@ -4153,52 +4153,52 @@ $
   mat(
     ket(l + 1 / 2","m);
     ket(l - 1 / 2","m)
-  ) &= 1 / sqrt(2l + 1)
-  mat(
-    sqrt(l + 1 / 2 + m), sqrt(l + 1 / 2 - m);
-    - sqrt(l+ 1 / 2 + m), sqrt(l + 1 / 2 - m)
-  )
-  mat(
-    ket(l","m - 1 / 2) ket(1 / 2","1 / 2);
-    ket(l","m + 1 / 2) ket(1 / 2","-1 / 2)
-  )\
-  & = U^* mat(
-    ket(l","m - 1 / 2) ket(1 / 2","1 / 2);
-    ket(l","m + 1 / 2) ket(1 / 2","-1 / 2)
-  )
+  ) & = 1 / sqrt(2l + 1)
+      mat(
+        sqrt(l + 1 / 2 + m), sqrt(l + 1 / 2 - m);
+        - sqrt(l+ 1 / 2 + m), sqrt(l + 1 / 2 - m)
+      )
+      mat(
+        ket(l","m - 1 / 2) ket(1 / 2","1 / 2);
+        ket(l","m + 1 / 2) ket(1 / 2","-1 / 2)
+      ) \
+    & = U^* mat(
+        ket(l","m - 1 / 2) ket(1 / 2","1 / 2);
+        ket(l","m + 1 / 2) ket(1 / 2","-1 / 2)
+      )
 $
 于是$hat(S)_z$在新基底的矩阵形式是
 $
   U hbar / 2 mat(
     1, 0;
     0, -1
-  ) U^dagger &= hbar / (2(2l + 1)) mat(
-    sqrt(l + 1 / 2 + m), sqrt(l + 1 / 2 - m);
-    - sqrt(l + 1 / 2 + m), sqrt(l + 1 / 2 - m)
-  ) mat(
-    1, 0;
-    0, -1
-  ) mat(
-    sqrt(l + 1 / 2 + m), - sqrt(l + 1 / 2 + m);
-    sqrt(l + 1 / 2 - m), sqrt(l + 1 / 2 - m)
-  )\
-  &= hbar / (2(2l+1)) mat(
-    2m, -sqrt((2l+1)^2 - 4m^2);
-    -sqrt((2l+1)^2 - 4m^2), -2m
-  )
+  ) U^dagger & = hbar / (2(2l + 1)) mat(
+                 sqrt(l + 1 / 2 + m), sqrt(l + 1 / 2 - m);
+                 - sqrt(l + 1 / 2 + m), sqrt(l + 1 / 2 - m)
+               ) mat(
+                 1, 0;
+                 0, -1
+               ) mat(
+                 sqrt(l + 1 / 2 + m), - sqrt(l + 1 / 2 + m);
+                 sqrt(l + 1 / 2 - m), sqrt(l + 1 / 2 - m)
+               ) \
+             & = hbar / (2(2l+1)) mat(
+                 2m, -sqrt((2l+1)^2 - 4m^2);
+                 -sqrt((2l+1)^2 - 4m^2), -2m
+               )
 $
 也就是说
 $
   hat(S)_z mat(
     ket(l + 1 / 2","m);
     ket(l - 1 / 2","m)
-  ) &= hbar / (2(2l+1)) mat(
-    2m, -sqrt((2l+1)^2 - 4m^2);
-    -sqrt((2l+1)^2 - 4m^2), -2m
-  ) mat(
-    ket(l + 1 / 2","m);
-    ket(l - 1 / 2","m)
-  )\
+  ) & = hbar / (2(2l+1)) mat(
+        2m, -sqrt((2l+1)^2 - 4m^2);
+        -sqrt((2l+1)^2 - 4m^2), -2m
+      ) mat(
+        ket(l + 1 / 2","m);
+        ket(l - 1 / 2","m)
+      ) \
 $
 即有
 $
@@ -4268,11 +4268,11 @@ $
 $
 如果把耦合项看作微扰，则耦合项引起的附加能量近似为
 $
-  Delta E &= braket(n","j","m_j","l","1 / 2, xi(r) arrow(L) dot arrow(S), n","j","m_j","l","1 / 2) \
-  &= braket(n l, xi(r), n l) braket(j","m_j","l","1 / 2, arrow(L) dot arrow(S), j","m_j","l","1 / 2)\
-  &= xi_(n l) hbar^2 / 2 (j(j+1) - l(l+1) - 3 / 4) = cases(
-    1 / 2 hbar^2 xi_(n l) 当(j= l+1 / 2), - (l + 1) / 2 hbar^2 xi_(n l)当 (j= l-1 / 2)
-  )
+  Delta E & = braket(n","j","m_j","l","1 / 2, xi(r) arrow(L) dot arrow(S), n","j","m_j","l","1 / 2) \
+          & = braket(n l, xi(r), n l) braket(j","m_j","l","1 / 2, arrow(L) dot arrow(S), j","m_j","l","1 / 2) \
+          & = xi_(n l) hbar^2 / 2 (j(j+1) - l(l+1) - 3 / 4) = cases(
+              1 / 2 hbar^2 xi_(n l) 当(j= l+1 / 2), - (l + 1) / 2 hbar^2 xi_(n l)当 (j= l-1 / 2)
+            )
 $
 其中$xi_(n l) = braket(n l, xi(r), n l)$，所以由于旋-轨耦合作用使原来的每条能级分裂成了两条。
 
@@ -4382,15 +4382,15 @@ $
 $
 从最大投影态出发$ket(1","1) = ket(arrow.t "," arrow.t)$，两边作用$S_-$：
 $
-  S_- ket(1","1) &= S_(1-) ket(arrow.t "," arrow.t) + S_(2-) ket(arrow.t "," arrow.t)\
-  sqrt(2) ket(1","0) &= ket(arrow.b "," arrow.t) + ket(arrow.t "," arrow.b)\
-  ket(1","0) &= 1 / sqrt(2) (ket(arrow.b "," arrow.t) + ket(arrow.t "," arrow.b))
+      S_- ket(1","1) & = S_(1-) ket(arrow.t "," arrow.t) + S_(2-) ket(arrow.t "," arrow.t) \
+  sqrt(2) ket(1","0) & = ket(arrow.b "," arrow.t) + ket(arrow.t "," arrow.b) \
+          ket(1","0) & = 1 / sqrt(2) (ket(arrow.b "," arrow.t) + ket(arrow.t "," arrow.b))
 $
 两边再作用一次降算符：
 $
-  S_- ket(1","0) &= S_(1-) ket(arrow.b "," arrow.t) + S_(2-) ket(arrow.t "," arrow.b)\
-  sqrt(2) ket(1","-1) &= 1 / sqrt(2)(ket(arrow.b "," arrow.b) + ket(arrow.b "," arrow.b))\
-  ket(1","-1) &= ket(arrow.b "," arrow.b)
+       S_- ket(1","0) & = S_(1-) ket(arrow.b "," arrow.t) + S_(2-) ket(arrow.t "," arrow.b) \
+  sqrt(2) ket(1","-1) & = 1 / sqrt(2)(ket(arrow.b "," arrow.b) + ket(arrow.b "," arrow.b)) \
+          ket(1","-1) & = ket(arrow.b "," arrow.b)
 $
 同理可以得到$S=0$的情形：
 $
@@ -4671,8 +4671,8 @@ $
 $
 这个微扰能与$n$无关。实际上，这个问题是有精确解的
 $
-  V(x) &= 1 / 2 mu omega^2 x^2 - q E x\
-  &= 1 / 2 mu omega^2 (x - (q E) / (mu omega^2))^2 -( q^2 E^2) / (2 mu omega^2)
+  V(x) & = 1 / 2 mu omega^2 x^2 - q E x \
+       & = 1 / 2 mu omega^2 (x - (q E) / (mu omega^2))^2 -( q^2 E^2) / (2 mu omega^2)
 $
 它的第一项只不过是把原来的谐振子势能平移了一段距离，这个移动不会影响谐振子的能级，而它的第二项正是前面求出的与$n$无关的能级修正。
 
@@ -4886,8 +4886,8 @@ $
 
 可以用迭代法求级数解，即方程右边的$ket(psi)$用0级近似$ket(psi_0)$代替，求得$ket(psi)$后再代入方程的右边，如此循环往复得：
 $
-  ket(psi) &= ket(psi_0) + hat(G) V ket(psi_0) + hat(G) V hat(G) V ket(psi_0) + ...\
-  &= (1 + hat(G)hat(T)_s) ket(psi_0), hat(T)_s = V + V hat(G) V + ...
+  ket(psi) & = ket(psi_0) + hat(G) V ket(psi_0) + hat(G) V hat(G) V ket(psi_0) + ... \
+           & = (1 + hat(G)hat(T)_s) ket(psi_0), hat(T)_s = V + V hat(G) V + ...
 $
 如果$hat(T)_s$取1级近似（*波恩近似*），则
 $
@@ -4971,9 +4971,9 @@ $
 $
 其中$a$为原子半径，$Z'e$为入射粒子电量，代入中心力场情况下微分截面的波恩近似公式
 $
-  sigma(theta) &= (4 m^2) / (hbar^4 q^2) abs(integral_0^oo r V(r) sin(q r) dd(r))^2\
-  &= (4 m^2 Z^2 Z'^2 e_s^4) / (hbar^4 q^2) abs(integral_0^oo e^(- r / a) sin(q r) dd(r))^2\
-  &= (4 m^2 Z^2 Z'^2 e_s^4) / (hbar^4 (q^2 + 1 / a^2)^2)\
+  sigma(theta) & = (4 m^2) / (hbar^4 q^2) abs(integral_0^oo r V(r) sin(q r) dd(r))^2 \
+               & = (4 m^2 Z^2 Z'^2 e_s^4) / (hbar^4 q^2) abs(integral_0^oo e^(- r / a) sin(q r) dd(r))^2 \
+               & = (4 m^2 Z^2 Z'^2 e_s^4) / (hbar^4 (q^2 + 1 / a^2)^2) \
 $
 
 如果入射粒子能量很高，其德布罗意波长远小于散射势场半径(这里即原子半径$a$)，同时散射角$θ$不是特别小的情况下，我们有
@@ -5135,8 +5135,8 @@ $
 $
 因为总自旋非极化，所以是混合态，粒子在这$9$个纯态上的统计概率都是$1 / 9$，所以最后的总微分截面为
 $
-  sigma(theta) &= 3 / 9 abs(f(theta) - f(pi - theta))^2 + 6 / 9 abs(f(theta) + f(pi - theta))^2 \
-  &= abs(f(theta))^2 + abs(f(pi - theta))^2 + 2 / 3 Re(f^*(theta) f(pi - theta))
+  sigma(theta) & = 3 / 9 abs(f(theta) - f(pi - theta))^2 + 6 / 9 abs(f(theta) + f(pi - theta))^2 \
+               & = abs(f(theta))^2 + abs(f(pi - theta))^2 + 2 / 3 Re(f^*(theta) f(pi - theta))
 $
 
 #newpara()
@@ -5283,9 +5283,9 @@ $
 $
 于是：
 $
-  V_(f i) &= integral phi^*_f V(arrow(r)) phi_i dd(""^3 x)\
-  &= L^(-3) integral e^(- i arrow(k)_f dot arrow(r)) V(arrow(r)) e^(i arrow(k) dot arrow(r)) dd(""^3 x)\
-  &= L^(-3) integral e^(- i arrow(q) dot arrow(r)) V(arrow(r)) dd(""^3 x)
+  V_(f i) & = integral phi^*_f V(arrow(r)) phi_i dd(""^3 x) \
+          & = L^(-3) integral e^(- i arrow(k)_f dot arrow(r)) V(arrow(r)) e^(i arrow(k) dot arrow(r)) dd(""^3 x) \
+          & = L^(-3) integral e^(- i arrow(q) dot arrow(r)) V(arrow(r)) dd(""^3 x)
 $
 其中
 $
@@ -5317,9 +5317,9 @@ $
 $
 最后，微分散射截面为：
 $
-  sigma(θ, φ) &= W(θ, φ) / j_("in") = ((L^6 M^2) / (4 pi^2 hbar^4)) abs(V_(f i))^2\
-  &= (L^6 M^2) / (4 pi^2 hbar^4) abs(L^(-3) integral e^(- i arrow(q) dot arrow(r)) V(arrow(r)) dd(""^3 x))^2\
-  &= m^2 / (4 pi^2 hbar^4) abs(integral e^(- i arrow(q) dot arrow(r)) V(arrow(r)) dd(""^3 x))^2
+  sigma(θ, φ) & = W(θ, φ) / j_("in") = ((L^6 M^2) / (4 pi^2 hbar^4)) abs(V_(f i))^2 \
+              & = (L^6 M^2) / (4 pi^2 hbar^4) abs(L^(-3) integral e^(- i arrow(q) dot arrow(r)) V(arrow(r)) dd(""^3 x))^2 \
+              & = m^2 / (4 pi^2 hbar^4) abs(integral e^(- i arrow(q) dot arrow(r)) V(arrow(r)) dd(""^3 x))^2
 $
 这和按定态微扰处理的波恩近似结果一致，且$L$被消掉了。
 

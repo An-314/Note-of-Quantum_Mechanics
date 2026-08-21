@@ -1,4 +1,4 @@
-#import "@preview/scripst:1.1.1": *
+#import "@preview/scripst:1.1.2": *
 
 #set page(
   paper: "a4",
@@ -578,9 +578,9 @@ $
 $
 *时间演化与量子跃迁*：
 $
-  ket(chi(t)) &= e^(- i / hbar t hat(H)) ket(chi(0))
-  = e^(- i (w_L t) / 2 arrow(sigma) dot arrow(e)_B) mat(a_0; b_0) sigma_z"表象"\
-  &= (cos(w_L / 2 t) - i sin(w_L / 2 t) arrow(sigma) dot arrow(e)_B ) mat(a_0; b_0)\
+  ket(chi(t)) & = e^(- i / hbar t hat(H)) ket(chi(0))
+                = e^(- i (w_L t) / 2 arrow(sigma) dot arrow(e)_B) mat(a_0; b_0) sigma_z"表象" \
+              & = (cos(w_L / 2 t) - i sin(w_L / 2 t) arrow(sigma) dot arrow(e)_B ) mat(a_0; b_0) \
 $
 $e^(- i / hbar t hat(H))$有非0非对角矩阵元，则可能自旋“*跃迁*”。
 
@@ -663,13 +663,13 @@ $
   & =^([hat(J)_plus.minus , hat(J)_z] = minus.plus hbar hat(J)_plus.minus) hbar(hat(L)_+ hat(S)_- - hat(L)_- hat(S)_+)!= 0
 $
 $
-  macron(S)_z &= hbar / (2(2l+1)) integral mat(
-    sqrt(j + m) Y_(l,m-1 / 2);
-    sqrt(j - m) Y_(l,m+1 / 2)
-  )^dagger sigma_z mat(
-    sqrt(j + m) Y_(l,m-1 / 2);
-    sqrt(j - m) Y_(l,m+1 / 2)
-  ) dd(tau)= (m hbar) / (2l+1)
+  macron(S)_z & = hbar / (2(2l+1)) integral mat(
+                  sqrt(j + m) Y_(l,m-1 / 2);
+                  sqrt(j - m) Y_(l,m+1 / 2)
+                )^dagger sigma_z mat(
+                  sqrt(j + m) Y_(l,m-1 / 2);
+                  sqrt(j - m) Y_(l,m+1 / 2)
+                ) dd(tau)= (m hbar) / (2l+1)
 $
 #set text(size: 6pt)
 非耦合表象下$hat(S)_z$的矩阵形式是$hbar / 2 mat(
@@ -697,11 +697,11 @@ $
 $
 #set text(size: 6pt)
 $
-  Delta E &= braket(n","j","m_j","l","1 / 2, xi(r) arrow(L) dot arrow(S), n","j","m_j","l","1 / 2) \
-  &= braket(n l, xi(r), n l) braket(j","m_j","l","1 / 2, arrow(L) dot arrow(S), j","m_j","l","1 / 2)\
-  &= xi_(n l) hbar^2 / 2 (j(j+1) - l(l+1) - 3 / 4) = cases(
-    1 / 2 hbar^2 xi_(n l) 当(j= l+1 / 2), - (l + 1) / 2 hbar^2 xi_(n l)当 (j= l-1 / 2)
-  )
+  Delta E & = braket(n","j","m_j","l","1 / 2, xi(r) arrow(L) dot arrow(S), n","j","m_j","l","1 / 2) \
+          & = braket(n l, xi(r), n l) braket(j","m_j","l","1 / 2, arrow(L) dot arrow(S), j","m_j","l","1 / 2) \
+          & = xi_(n l) hbar^2 / 2 (j(j+1) - l(l+1) - 3 / 4) = cases(
+              1 / 2 hbar^2 xi_(n l) 当(j= l+1 / 2), - (l + 1) / 2 hbar^2 xi_(n l)当 (j= l-1 / 2)
+            )
 $
 #set text(size: 8pt)
 - *反常Zeeman效应(偶)*【*旋-轨耦合*和*磁-轨耦合*】

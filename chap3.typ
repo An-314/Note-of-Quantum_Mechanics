@@ -1,4 +1,4 @@
-#import "@preview/scripst:1.1.1": *
+#import "@preview/scripst:1.1.2": *
 
 = 一维运动问题的一般分析
 
@@ -38,10 +38,10 @@ $
 
 _证明：_
 $
-  &W(psi_1, psi_2)' \
-  =& psi_1 psi_2^'' - psi_1^'' psi_2 \
-  =& - psi_1 (((2m) / hbar^2)(E - V(x)) psi_2) + psi_2 (((2m) / hbar^2)(E - V(x)) psi_1) \
-  =& 0
+    & W(psi_1, psi_2)' \
+  = & psi_1 psi_2^'' - psi_1^'' psi_2 \
+  = & - psi_1 (((2m) / hbar^2)(E - V(x)) psi_2) + psi_2 (((2m) / hbar^2)(E - V(x)) psi_1) \
+  = & 0
 $
 
 当$Delta = 0$时, $phi_(1,2)(x)$ 是线性相关的，即它们只相差一个常数因子(同一个波函数)；当$Delta != 0$时，$phi_(1,2)(x)$ 是线性无关的。
@@ -144,15 +144,15 @@ $
 一维无限深方势阱的势能函数为：
 $
   U(x) = cases(
-    0 &|x| < a,
-    oo &|x| > a
+    0 & |x| < a,
+    oo & |x| > a
   )
 $
 定态薛定谔方程的形式：
 $
   cases(
-    - hbar^2 / (2m) dd(""^2psi) / dd(x^2)psi(x) = E psi(x) &|x| < a,
-    - hbar^2 / (2m) dd(""^2psi) / dd(x^2)psi(x) + U_0 psi(x) = E psi(x) &|x| > a
+    - hbar^2 / (2m) dd(""^2psi) / dd(x^2)psi(x) = E psi(x) & |x| < a,
+    - hbar^2 / (2m) dd(""^2psi) / dd(x^2)psi(x) + U_0 psi(x) = E psi(x) & |x| > a
   )
 $
 #newpara()
@@ -164,16 +164,16 @@ $
 解为：
 $
   psi(x) = cases(
-    c_1 e^(i / hbar p x) + c_2 e^(-i / hbar p x) &|x| < a,
-    0 &|x| > a
+    c_1 e^(i / hbar p x) + c_2 e^(-i / hbar p x) & |x| < a,
+    0 & |x| > a
   )
 $
 其中，$p = sqrt(2m E)$。
 
 $c_1, c_2$为待定常数，由波函数应满足的“单值、有限、连续”条件决定。“单值、有限”已经满足，下面看*连续条件*：
 $
-  psi(-a) &= 0 &=> &c_1 e^(-i / hbar p a) + c_2 e^(i / hbar p a) = 0\
-  psi(a) &= 0 &=> &c_1 e^(i / hbar p a) + c_2 e^(-i / hbar p a) = 0
+  psi(-a) & = 0 & => & c_1 e^(-i / hbar p a) + c_2 e^(i / hbar p a) = 0 \
+   psi(a) & = 0 & => & c_1 e^(i / hbar p a) + c_2 e^(-i / hbar p a) = 0
 $
 
 得到：
@@ -251,7 +251,7 @@ $
 定态薛定谔方程的形式：
 $
   cases(
-    dd(""^2psi) / dd(x^2)psi(x) + k^2 psi(x) = 0 &|x| < a, \
+    dd(""^2psi) / dd(x^2)psi(x) + k^2 psi(x) = 0 & |x| < a, \
     dd(""^2psi) / dd(x^2)psi(x) - alpha^2 psi(x) = 0 &|x| > a
   )
 $
@@ -260,7 +260,7 @@ $
 有限解为
 $
   psi(x) = cases(
-    C e^(alpha x) &x<-a, \
+    C e^(alpha x) & x<-a, \
     A cos(k x) + B sin(k x) &|x| < a, \
     D e^(-alpha x) &x > a
   )
@@ -351,8 +351,8 @@ $
 结合束缚态的要求，得到一般解为：
 $
   psi(x) = cases(
-    C_1 e^(beta x) &x<0,
-    C_2 e^(-beta x) &x>0
+    C_1 e^(beta x) & x<0,
+    C_2 e^(-beta x) & x>0
   )
 $
 其中
@@ -365,7 +365,7 @@ $
 $
 归一化条件：
 $
-  integral |psi(x)|^2 dd(x) &= 1
+  integral |psi(x)|^2 dd(x) & = 1
 $
 令$beta = 1 / L$，得到：
 $
@@ -375,9 +375,9 @@ $L$被称为特征长度。
 
 进一步地，对Schrodinger方程两边积分，得到：
 $
-  dd(psi) / dd(x) |_0^0 &= - (2m) / hbar^2 gamma psi(0)\
-  psi'(0^+) - psi'(0^-) &= - (2m) / hbar^2 gamma psi(0)\
-  -2 beta &= - (2m gamma) / hbar^2
+  dd(psi) / dd(x) |_0^0 & = - (2m) / hbar^2 gamma psi(0) \
+  psi'(0^+) - psi'(0^-) & = - (2m) / hbar^2 gamma psi(0) \
+                -2 beta & = - (2m gamma) / hbar^2
 $
 得到束缚态基态的能量：
 $
@@ -459,13 +459,13 @@ $
 
 *Hermite方程对于本征值$lambda$的多项式解就是Hermite多项式*。
 $
-  H_0 (xi) &= 1,\
-  H_1 (xi) &= 2 xi,\
-  H_2 (xi) &= 4 xi^2 - 2,\
+  H_0 (xi) & = 1, \
+  H_1 (xi) & = 2 xi, \
+  H_2 (xi) & = 4 xi^2 - 2, \
 $
 一般形式：
 $
-  H_n (xi) &= (-1)^n e^(xi^2) dd(""^n) / dd(xi^n)e^(-xi^2)
+  H_n (xi) & = (-1)^n e^(xi^2) dd(""^n) / dd(xi^n)e^(-xi^2)
 $
 正交归一：
 $
@@ -548,7 +548,7 @@ $
 *散射情况*是：粒子从一边入射，被势场散射而分成了反射和透射两个部分。这给方程提出了一定的条件。以左方入射为例，边界条件是：
 $
   cases(
-    psi(x) =A e^(i / hbar p x) + B e^(-i / hbar p x) & "入射加反射" &x -> -oo, \
+    psi(x) =A e^(i / hbar p x) + B e^(-i / hbar p x) & "入射加反射" & x -> -oo, \
     psi(x) = C e^(i / hbar p x) & "只有透射" &x -> +oo
   )
 $
@@ -565,22 +565,22 @@ $
 方势垒的势能函数为：
 $
   U(x) = cases(
-    U_0 &0 < x < a,
-    0 &x < 0 or x>a
+    U_0 & 0 < x < a,
+    0 & x < 0 or x>a
   )
 $
 定态Schrödinger方程：
 $
   cases(
-    dd(""^2psi) / dd(x^2)psi(x) + (2m) / hbar^2(E - U_0) psi(x) = 0 &(0 < x < a), \
+    dd(""^2psi) / dd(x^2)psi(x) + (2m) / hbar^2(E - U_0) psi(x) = 0 & (0 < x < a), \
     dd(""^2psi) / dd(x^2)psi(x) + (2m) / hbar^2(E) psi(x) = 0 &(x < 0 or x>a)
   )
 $
 解为：
 $
-  psi_1 &= A e^(i k_1 x) + A' e^(-i k_1 x) &(x < 0),\
-  psi_2 &= B e^(i k_2 x) + B' e^(-i k_2 x) &(0 < x < a),\
-  psi_3 &= C e^(i k_1 x) &(x > a)
+  psi_1 & = A e^(i k_1 x) + A' e^(-i k_1 x) &     (x < 0), \
+  psi_2 & = B e^(i k_2 x) + B' e^(-i k_2 x) & (0 < x < a), \
+  psi_3 & = C e^(i k_1 x)                   &      (x > a)
 $
 其中，$k_1 = sqrt(2m E / hbar^2), k_2 = sqrt(2m (E - U_0) / hbar^2)$。表达式中第一项(第二项)代表从左向右(从右向左)传播的平面波。在$x>a$的区域只有向右的透射波，所以$C'=0$。
 
@@ -614,8 +614,8 @@ $
 $
 当$U_0$很大时时，$k_3a>>1$，透射系数可近似为:
 $
-  D &= D_0 (k_1, k_3) e^(-2k_3 a)\
-  &= D_0 (k_1, k_3) e^(-2 sqrt(2mu(U_0 - E) / hbar^2) a)
+  D & = D_0 (k_1, k_3) e^(-2k_3 a) \
+    & = D_0 (k_1, k_3) e^(-2 sqrt(2mu(U_0 - E) / hbar^2) a)
 $
 $E<U_0$时$D>0$，这就是*量子隧穿效应*。
 

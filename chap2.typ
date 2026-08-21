@@ -1,4 +1,4 @@
-#import "@preview/scripst:1.1.1": *
+#import "@preview/scripst:1.1.2": *
 
 = 波函数和薛定谔方程
 
@@ -38,8 +38,8 @@ $
 
 例如电子的双缝干涉：
 $
-  P_(12) &= |psi_1 + psi_2|^2 = |psi_1|^2 + |psi_2|^2 + (psi_1^*psi_2 + psi_2^*psi_1)\
-  &= P_1 + P_2 + 2sqrt(P_1P_2)cos(phi)
+  P_(12) & = |psi_1 + psi_2|^2 = |psi_1|^2 + |psi_2|^2 + (psi_1^*psi_2 + psi_2^*psi_1) \
+         & = P_1 + P_2 + 2sqrt(P_1P_2)cos(phi)
 $
 电子呈现的波动性反应了微观客体运动的一种统计特性，因此波函数也被称为概率波幅。
 ==== 波函数的归一
@@ -210,7 +210,7 @@ $
 
 de Broglie波 $psi(arrow(r), t) = e^(i / hbar (arrow(p)dot arrow(r) - E t))$ 有等式：
 $
-  diff / (diff t) psi = -i / hbar E psi
+  "d" / ("d" t) psi = -i / hbar E psi
 $
 $
   nabla psi = i arrow(p) / hbar psi
@@ -226,7 +226,7 @@ $
 中进行代换：
 $
   cases(
-    E -> i hbar diff / (diff t),
+    E -> i hbar "d" / ("d" t),
     p -> -i hbar nabla
   )
 $
@@ -238,7 +238,7 @@ $
 $
 得到单粒子运动的*薛定谔(Schrodinger)方程*：
 $
-  i hbar diff / (diff t) psi = -hbar^2 / (2m) nabla^2 psi + U(arrow(r)) psi
+  i hbar "d" / ("d" t) psi = -hbar^2 / (2m) nabla^2 psi + U(arrow(r)) psi
 $
 
 _例：相对论粒子所满足的Klein-Gorden方程_
@@ -262,16 +262,16 @@ $
 $
 可以计算时间的变化率：
 $
-  diff / (diff t) w = diff / (diff t) (psi^*psi) = (diff / (diff t) psi^*) psi + psi^* (diff / (diff t) psi)
+  "d" / ("d" t) w = "d" / ("d" t) (psi^*psi) = ("d" / ("d" t) psi^*) psi + psi^* ("d" / ("d" t) psi)
 $
 利用Schrodinger方程：
 $
-  diff / (diff t) psi &= (i hbar) / (2m) nabla^2 psi - i / hbar U psi\
-  diff / (diff t) psi^* &= (-i hbar) / (2m) nabla^2 psi^* + i / hbar U psi^*
+    "d" / ("d" t) psi & = (i hbar) / (2m) nabla^2 psi - i / hbar U psi \
+  "d" / ("d" t) psi^* & = (-i hbar) / (2m) nabla^2 psi^* + i / hbar U psi^*
 $
 认为势能是实函数，从而：
 $
-  diff / (diff t) w = (i hbar) / (2m) (nabla^2 psi^* psi - psi^* nabla^2 psi)
+  "d" / ("d" t) w = (i hbar) / (2m) (nabla^2 psi^* psi - psi^* nabla^2 psi)
 $
 设*几率流密度*为：
 $
@@ -279,7 +279,7 @@ $
 $
 则：
 $
-  diff / (diff t) w + nabla dot arrow(J) = 0
+  "d" / ("d" t) w + nabla dot arrow(J) = 0
 $
 即*几率守恒定律*。
 
@@ -305,13 +305,13 @@ $
 
 若势能$U$不显含时间，则薛定谔方程为：
 $
-  i hbar diff / (diff t) psi = (-hbar^2 / (2m) nabla^2 + U(arrow(r))) psi(arrow(r), t)
+  i hbar "d" / ("d" t) psi = (-hbar^2 / (2m) nabla^2 + U(arrow(r))) psi(arrow(r), t)
 $
 记Hamilton算符为：
 $
   hat(H) = -hbar^2 / (2m) nabla^2 + U(arrow(r))
 $
-时间算符$i hbar diff / (diff t)$与Hamilton算符$hat(H)$都是*能量算符*。
+时间算符$i hbar "d" / ("d" t)$与Hamilton算符$hat(H)$都是*能量算符*。
 
 分离变量法：
 $
@@ -319,8 +319,8 @@ $
 $
 代入薛定谔方程得：
 $
-  i hbar psi(arrow(r)) (dd(f(t))) / (dd(t)) &= f(t) hat(H) psi(arrow(r))\
-  (i hbar) / (f(t)) (dd(f(t))) / (dd(t)) &= (hat(H) psi(arrow(r))) / (psi(arrow(r))) = E
+  i hbar psi(arrow(r)) (dd(f(t))) / (dd(t)) & = f(t) hat(H) psi(arrow(r)) \
+     (i hbar) / (f(t)) (dd(f(t))) / (dd(t)) & = (hat(H) psi(arrow(r))) / (psi(arrow(r))) = E
 $
 得到*本征方程*：
 $
@@ -328,8 +328,8 @@ $
 $
 和$f(t)$满足的方程：
 $
-  (dd(f(t))) / (dd(t)) &= -i E f(t) / hbar\
-  f(t) &= C e^(-i / hbar E t)
+  (dd(f(t))) / (dd(t)) & = -i E f(t) / hbar \
+                  f(t) & = C e^(-i / hbar E t)
 $
 为时间震动因子，$C$为常数。
 
