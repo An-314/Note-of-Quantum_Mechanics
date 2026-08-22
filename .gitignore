@@ -1,3 +1,5 @@
 /builds
 /files
+/HW/*.pdf
+!/HW/HW.pdf
 notes.mk
