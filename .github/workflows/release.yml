@@ -60,7 +60,15 @@ jobs:
             - name: 📎 Upload PDF to Release
               uses: softprops/action-gh-release@v1
               with:
-                  files: main.pdf
+                  files: builds/main.pdf
+                  tag_name: v${{ github.run_number }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: 📎 Upload HW PDF to Release
+              uses: softprops/action-gh-release@v1
+              with:
+                  files: builds/HW/*.pdf
                   tag_name: v${{ github.run_number }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -68,7 +76,7 @@ jobs:
             - name: 📎 Upload Other PDFs to Release
               uses: softprops/action-gh-release@v1
               with:
-                  files: cheatsheet.pdf
+                  files: builds/cheatsheet.pdf
                   tag_name: v${{ github.run_number }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
