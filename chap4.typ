@@ -3797,17 +3797,17 @@ $
 对于这样的波函数和算符，原先的公式需要稍加修正
 - 波函数的归一化是：
   $
-    integral Psi^dagger Psi dd(arrow(r)) = integral (abs(Psi_1)^2 + abs(Psi_2)^2) dd(arrow(r)) = 1
+    integral Psi^dagger Psi dd(arrow(r)) = integral (abs(psi_1)^2 + abs(psi_2)^2) dd(arrow(r)) = 1
   $
 - 电子的空间几率密度是：
   $
-    W(arrow(r)) = Psi^dagger(arrow(r)) Psi(arrow(r)) = abs(Psi_1)^2 + abs(Psi_2)^2
+    W(arrow(r)) = Psi^dagger (arrow(r)) Psi(arrow(r)) = abs(psi_1)^2 + abs(psi_2)^2
   $
 - 电子的两种自旋状态的几率是：
   $
-    W_arrow.t (arrow(r)) = abs(Psi_1)^2, W_arrow.b (arrow(r)) = abs(Psi_2)^2
+    W_arrow.t (arrow(r)) = abs(psi_1)^2, W_arrow.b (arrow(r)) = abs(psi_2)^2
   $
-  如果自旋和轨道*非耦合*（即没有自旋-轨道相互作用）的状态，此时$Psi_1$和$Psi_2$函数形式呈固定比例：
+  如果自旋和轨道*非耦合*（即没有自旋-轨道相互作用）的状态，此时$psi_1$和$psi_2$函数形式呈固定比例：
   $
     Psi(arrow(r), t) = Psi_0 (arrow(r), t) mat(a; b)
   $
@@ -3841,7 +3841,7 @@ $arrow(sigma) dot arrow(e)_B$的本征值是$±1$。
 $
   omega_L = - g B
 $
-为*拉莫频率*。
+为*Larmor频率*。
 
 == 自旋量子态的时间演化与量子跃迁
 
@@ -3852,6 +3852,19 @@ $
               & = (cos(w_L / 2 t) - i sin(w_L / 2 t) arrow(sigma) dot arrow(e)_B ) mat(a_0; b_0) \
 $
 如果时间演化算符具有非0非对角矩阵元，则有可能出现自旋向上和向下的部分相互“*跃迁*”。
+
+第二个等号是因为
+$
+  e^(- i omega vb(sigma) dot vu(n)) &= sum_(n=0)^oo (- i omega vb(sigma) dot vu(n))^n / n! \
+  &= sum_(n=0)^oo (- i omega vb(sigma) dot vu(n))^(2n) / (2n)! + sum_(n=0)^oo (- i omega vb(sigma) dot vu(n))^(2n+1) / (2n+1)! \
+  &= sum_(n=0)^oo (-1)^n ( omega vb(sigma) dot vu(n))^(2n) / (2n)! - i sum_(n=0)^oo (-1)^n (omega vb(sigma) dot vu(n))^(2n+1) / (2n+1)! \
+  &= sum_(n=0)^oo (-1)^n ( omega)^(2n) / (2n)! - i sum_(n=0)^oo (-1)^n (omega)^(2n+1) / (2n+1)! vb(sigma) dot vu(n) \
+  &= cos(omega) - i sin(omega) vb(sigma) dot vu(n)
+$
+其中
+$
+  (vb(sigma) dot vb(a))(vb(sigma) dot vb(b)) = vb(a) dot vb(b) + i vb(sigma) dot (vb(a) crossproduct vb(b))
+$
 
 例：取$arrow(B)$沿$x$轴方向，$ket(chi(0))$为自旋向上的$sigma_z$本征态，则
 $
@@ -3872,6 +3885,8 @@ $
   ket(chi(t)) = ( cos(omega_L t / 2) - i sin(omega_L t / 2) sigma_z ) ket(chi(0)) = mat(e^(- i omega_L t / 2) a_0; e^(i omega_L t / 2) b_0)
 $
 这时候自旋态的概率就不发生震荡了。
+
+#pagebreak()
 
 = 角动量的合成、角动量耦合表象、反常Zeeman效应(Bell基)
 
@@ -3937,7 +3952,8 @@ $
 
 在一个特殊的状态下，直积的本征态和耦合的本征态是相同的，那就是“最大投影态”$ket(j_1 j_1) ket(j_2 j_2)$。$m_1 = j_1, m_2 = j_2$，$m = j_1 + j_2$为其最大值。$m$的最大值显然也是$j$的最大值。注意到：
 $
-  hat(J)^2 = (hat(arrow(J))_1 + hat(arrow(J))_2)^2 = hat(arrow(J))_1^2 + hat(arrow(J))_2^2 + 2 hat(arrow(J))_1 dot hat(arrow(J))_2 = hat(arrow(J))_1^2 + hat(arrow(J))_2^2 + hat(J)_(1 +) hat(J)_(2 -) + hat(J)_(1 -) hat(J)_(2 +) + 2 hat(J)_(1 z) hat(J)_(2 z)
+  hat(J)^2 &= (hat(arrow(J))_1 + hat(arrow(J))_2)^2 = hat(arrow(J))_1^2 + hat(arrow(J))_2^2 + 2 hat(arrow(J))_1 dot hat(arrow(J))_2 \
+  &= hat(arrow(J))_1^2 + hat(arrow(J))_2^2 + hat(J)_(1 +) hat(J)_(2 -) + hat(J)_(1 -) hat(J)_(2 +) + 2 hat(J)_(1 z) hat(J)_(2 z)
 $
 作用到最大投影态上：
 $
@@ -3984,7 +4000,7 @@ $
 $
   ket(j","m";"j_1","j_2) = sum_(m = m_1 + m_2) C(j ,m; j_1, m_1, j_2, m_2) ket(j_1","m_1) ket(j_2","m_2)
 $
-中的系数$C(j ,m; j_1, m_1, j_2, m_2)$被称为*Clebsch-Gordan*（克莱布希-戈尔丹）系数（CG系数）
+中的系数$C(j ,m; j_1, m_1, j_2, m_2)$被称为*Clebsch-Gordan*系数（CG系数）
 
 首先，从前面的分析中知道：只有在
 $
@@ -4513,6 +4529,8 @@ $
   numbering: none,
 )
 
+#pagebreak()
+
 = 定态微扰论
 
 == 非简并情形
@@ -4820,6 +4838,8 @@ $
   image("pic/2024-06-19-13-47-44.png", width: 80%),
   numbering: none,
 )
+
+#pagebreak()
 
 = 散射理论
 
@@ -5162,6 +5182,8 @@ _例：两个电子散射，求非极化的微分散射截面_
   image("pic/2024-06-19-23-57-24.png", width: 80%),
   numbering: none,
 )
+
+#pagebreak()
 
 = 含时微扰
 
