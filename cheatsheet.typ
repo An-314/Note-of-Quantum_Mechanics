@@ -36,8 +36,8 @@
 
 #set text(size: 6pt)
 + 微观体系的状态由波函数描述，波函数满足单值、有限、连续条件
-+ 波函数的动力学演化满足薛定鄂方程
-+ 力学量用*厄密算符*表示，且有组成*完备集的本征函数系*
++ 波函数的动力学演化满足Schrödinger方程
++ 力学量用*Hermite算符*表示，且有组成*完备集的本征函数系*
 + 公任一波函数可以展开为力学量算符本征函数的线性叠加，测得力学量为本征值$lambda_n$的几率为展开式中对应本征函数系数的模方$abs(c_n)^2$
 + 全同粒子相互调换不改变体系状态
 #set text(size: 8pt)
@@ -91,7 +91,7 @@ $
 $
 就是算符$hat(L)$在$F$表象中的*矩阵元*。
 
-算符$hat(L)$的狄拉克符号表示为：
+算符$hat(L)$的Dirac符号表示为：
 $
   hat(L) = sum_(j k) L_(j k) ket(j) bra(k) = sum_(j k) ket(j) bra(j) hat(L) ket(k) bra(k)
 $
@@ -713,7 +713,7 @@ $
 #set text(size: 8pt)
 无外磁场，旋-轨耦合表象$E_(n l j) , ket(n "," j "," m_j "," l "," 1 / 2)$
 
-加入$(e B) / (2 mu) hat(J)_z$项，与原哈密顿算符对易，量子态不变：
+加入$(e B) / (2 mu) hat(J)_z$项，与原Hamilton算符对易，量子态不变：
 $E_(n l j m_j) = E_(n l j) + (e B) / (2 mu) m_j hbar [$(2j+1)$"重简并被完全消除"]$
 $(e B) / (2 mu) hat(S)_z$*微扰*，修正为
 #set text(size: 6pt)
@@ -972,7 +972,7 @@ $
   H'_(m k) (t) = F_(m k) sin (omega t), F_(m k) = integral phi_m^* hat(F) phi_k dd(tau)
 $
 $
-  a_(k->m) &= F_(m k) 1 / (i hbar) integral_0^t sin(omega t') e^(i omega_(m k) t') dd(t'),
+  a_(k->m) &= F_(m k) 1 / (i hbar) integral_0^TT sin(omega t') e^(i omega_(m k) t') dd(t'),
   omega_(m k) = (E_m - E_k) / hbar\
   &= - F_(m k) 1 / (2 i hbar)( (e^(i(omega+omega_(m k))t)-1) / (omega + omega_(m k)) + (e^(-i(omega-omega_(m k))t)-1) / (omega - omega_(m k)))
 $

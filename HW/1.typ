@@ -9,13 +9,13 @@
 )
 
 #exercise(subname: [1.1])[
-  按照玻尔兹曼分布分别计算频率为 $nu$ 的经典谐振子与能量量子化谐振子的平均能量和热容量，并讨论高、低温极限。
+  按照Bohr兹曼分布分别计算频率为 $nu$ 的经典谐振子与能量量子化谐振子的平均能量和热容量，并讨论高、低温极限。
 ]
 
 #solution[
   经典谐振子的配分函数为 $Z = integral_0^infinity exp(-beta E) dif E = 1/beta$，故
   $
-    bar(E)=-pdv(ln Z,beta)=k_B T, quad C_V=k_B.
+    bar(E)=-pdv(ln Z, beta)=k_B T, quad C_V=k_B.
   $
   量子谐振子的能级为 $E_n=(n+1/2)hbar omega$，其中 $omega=2 pi nu$。于是
   $
@@ -40,7 +40,7 @@
   $
     u(nu,T)=8 pi h nu^3/c^3 dot 1/(exp(h nu/(k_B T))-1).
   $
-  低频时 $h nu << k_B T$，展开指数得到瑞利—金斯公式
+  低频时 $h nu << k_B T$，展开指数得到Rayleigh—金斯公式
   $
     u(nu,T) approx 8 pi k_B T nu^2/c^3.
   $
@@ -66,7 +66,7 @@
 #solution[
   波长谱为
   $
-    u_lambda(lambda,T)=8 pi h c/lambda^5 dot 1/(exp(h c/(lambda k_B T))-1).
+    u_lambda(lambda, T)=8 pi h c/lambda^5 dot 1/(exp(h c/(lambda k_B T))-1).
   $
   令 $x=h c/(lambda k_B T)$，对 $lambda$ 求极值得
   $
@@ -79,7 +79,7 @@
 ]
 
 #exercise(subname: [1.4])[
-  推导康普顿散射的波长改变量，并说明为什么可见光的康普顿效应难以观察。
+  推导Compton散射的波长改变量，并说明为什么可见光的Compton效应难以观察。
 ]
 
 #solution[
@@ -91,7 +91,7 @@
   $
     lambda'-lambda=h/(m c)(1-cos theta)=lambda_C(1-cos theta).
   $
-  电子的康普顿波长 $lambda_C=2.426 times 10^(-12) "m"$。可见光波长约为 $10^(-7) "m"$，相对改变量最多仅约 $10^(-5)$，因而难以分辨；对 X 射线则容易观察。
+  电子的Compton波长 $lambda_C=2.426 times 10^(-12) "m"$。可见光波长约为 $10^(-7) "m"$，相对改变量最多仅约 $10^(-5)$，因而难以分辨；对 X 射线则容易观察。
 ]
 
 #exercise(subname: [1.5])[

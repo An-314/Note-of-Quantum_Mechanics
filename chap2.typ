@@ -1,6 +1,6 @@
 #import "@preview/scripst:1.1.2": *
 
-= 波函数和薛定谔方程
+= 波函数和Schrödinger方程
 
 == 波函数及其统计解释
 === 波函数和波粒二象性
@@ -198,15 +198,15 @@ $
 
 事实上$ψ(r,t)$是波函数在*坐标表象*的表示形式，$c(p,t)$是波函数在*动量表象*的表示形式。它们在描述粒子状态方面是等价的，只是具体描述方式不同。
 
-== 薛定谔方程
+== Schrödinger方程
 
-薛定谔方程应满足:
+Schrödinger方程应满足:
 1. 线性齐次 —— 波函数线性叠加原理。
 2. 方程系数不应包含如动量,能量等系统参量 —— 方程的解应描述所有可能的粒子状态。
 
 量子力学的基本定律是波函数所满足的偏微分方程。这个基本定律在本质上是一个假说。
 
-=== 从De Broglie波到薛定谔方程
+=== 从De Broglie波到Schrödinger方程
 
 de Broglie波 $psi(arrow(r), t) = e^(i / hbar (arrow(p)dot arrow(r) - E t))$ 有等式：
 $
@@ -226,7 +226,7 @@ $
 中进行代换：
 $
   cases(
-    E -> i hbar "d" / ("d" t),
+    E -> i hbar "d" / ("d"t),
     p -> -i hbar nabla
   )
 $
@@ -236,7 +236,7 @@ $
 $
   E = p^2 / (2m) + U(arrow(r))
 $
-得到单粒子运动的*薛定谔(Schrodinger)方程*：
+得到单粒子运动的*Schrödinger方程*：
 $
   i hbar "d" / ("d" t) psi = -hbar^2 / (2m) nabla^2 psi + U(arrow(r)) psi
 $
@@ -250,7 +250,7 @@ $
 $
   (c^2 hat(p)^2 + m_0^2c^4) psi = hat(E)^2 psi
 $
-可以描述相对论性玻色子的运动。但该方程可能解出负能量的解，有不可逾越的困难。
+可以描述相对论性Boson的运动。但该方程可能解出负能量的解，有不可逾越的困难。
 
 === 几率守恒定律
 
@@ -262,16 +262,16 @@ $
 $
 可以计算时间的变化率：
 $
-  "d" / ("d" t) w = "d" / ("d" t) (psi^*psi) = ("d" / ("d" t) psi^*) psi + psi^* ("d" / ("d" t) psi)
+  "d" / ("d"t) w = "d" / ("d"t) (psi^*psi) = ("d" / ("d"t) psi^*) psi + psi^* ("d" / ("d"t) psi)
 $
-利用Schrodinger方程：
+利用Schrödinger方程：
 $
-    "d" / ("d" t) psi & = (i hbar) / (2m) nabla^2 psi - i / hbar U psi \
-  "d" / ("d" t) psi^* & = (-i hbar) / (2m) nabla^2 psi^* + i / hbar U psi^*
+    "d" / ("d"t) psi & = (i hbar) / (2m) nabla^2 psi - i / hbar U psi \
+  "d" / ("d"t) psi^* & = (-i hbar) / (2m) nabla^2 psi^* + i / hbar U psi^*
 $
 认为势能是实函数，从而：
 $
-  "d" / ("d" t) w = (i hbar) / (2m) (nabla^2 psi^* psi - psi^* nabla^2 psi)
+  "d" / ("d"t) w = (i hbar) / (2m) (nabla^2 psi^* psi - psi^* nabla^2 psi)
 $
 设*几率流密度*为：
 $
@@ -279,7 +279,7 @@ $
 $
 则：
 $
-  "d" / ("d" t) w + nabla dot arrow(J) = 0
+  "d" / ("d"t) w + nabla dot arrow(J) = 0
 $
 即*几率守恒定律*。
 
@@ -301,9 +301,9 @@ $
 
 但是连续性允许有例外：在势能有无穷大跳跃的地方，波函数的一阶导数可以是不连续的
 
-== 定态薛定谔方程
+== 定态Schrödinger方程
 
-若势能$U$不显含时间，则薛定谔方程为：
+若势能$U$不显含时间，则Schrödinger方程为：
 $
   i hbar "d" / ("d" t) psi = (-hbar^2 / (2m) nabla^2 + U(arrow(r))) psi(arrow(r), t)
 $
@@ -317,7 +317,7 @@ $
 $
   Psi(arrow(r), t) = psi(arrow(r)) f(t)
 $
-代入薛定谔方程得：
+代入Schrödinger方程得：
 $
   i hbar psi(arrow(r)) (dd(f(t))) / (dd(t)) & = f(t) hat(H) psi(arrow(r)) \
      (i hbar) / (f(t)) (dd(f(t))) / (dd(t)) & = (hat(H) psi(arrow(r))) / (psi(arrow(r))) = E
@@ -333,7 +333,7 @@ $
 $
 为时间震动因子，$C$为常数。
 
-因此，定态薛定谔方程的解为：
+因此，定态Schrödinger方程的解为：
 $
   psi(arrow(r)) = sum C_n psi_n (arrow(r)) e^(-i / hbar E_n t)
 $
@@ -341,7 +341,7 @@ $
 
 #newpara()
 
-*本征方程*就是*定态薛定谔方程*：
+*本征方程*就是*定态Schrödinger方程*：
 $
   E psi(arrow(r)) = (-hbar^2 / (2m) nabla^2 + U(arrow(r))) psi_n (arrow(r))
 $

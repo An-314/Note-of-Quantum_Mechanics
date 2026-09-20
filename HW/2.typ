@@ -2,7 +2,7 @@
 #show: scripst.with(title: [量子力学第2次作业], author: "Anzreww", time: "2024年", matheq-depth: 1, cb-counter-depth: 1)
 
 #exercise(subname: [2.1])[
-  利用玻尔模型的角动量量子化条件，求氢原子的轨道半径、能级和里德伯常数。
+  利用Bohr模型的角动量量子化条件，求氢原子的轨道半径、能级和里德伯常数。
 ]
 #solution[
   圆周运动满足
@@ -23,7 +23,7 @@
 ]
 
 #exercise(subname: [2.2])[
-  用狄拉克 $delta$ 函数写出坐标本征态和动量本征态的归一化、正交与完备性关系。
+  用Dirac $delta$ 函数写出坐标本征态和动量本征态的归一化、正交与完备性关系。
 ]
 #solution[
   取

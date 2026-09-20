@@ -2,36 +2,36 @@
 #show: scripst.with(title: [量子力学第8次作业], author: "Anzreww", time: "2024年", matheq-depth: 1, cb-counter-depth: 1)
 
 #exercise(subname: [9.1])[
-  两个粒子可占据三个互不相同的单粒子态。分别在可分辨粒子、全同费米子和全同玻色子的情况下，求两粒子态的数目。
+  两个粒子可占据三个互不相同的单粒子态。分别在可分辨粒子、全同Fermion和全同Boson的情况下，求两粒子态的数目。
 ]
 #solution[
-  可分辨粒子有 $3^2=9$ 个直积态。无自旋全同费米子不能占据同一单粒子态，故有 $binom(3,2)=3$ 个反对称态。全同玻色子允许重复占据，故有
+  可分辨粒子有 $3^2=9$ 个直积态。无自旋全同Fermion不能占据同一单粒子态，故有 $binom(3, 2)=3$ 个反对称态。全同Boson允许重复占据，故有
   $
-    binom(3+2-1,2)=6
+    binom(3+2-1, 2)=6
   $
   个对称态。
 ]
 
 #exercise(subname: [9.2])[
-  三个粒子可占据三个单粒子态。分别求可分辨粒子、全同费米子和全同玻色子的三粒子态数目。
+  三个粒子可占据三个单粒子态。分别求可分辨粒子、全同Fermion和全同Boson的三粒子态数目。
 ]
 #solution[
-  可分辨粒子有 $3^3=27$ 个态。费米子必须每个单粒子态各占一个，只有 $binom(3,3)=1$ 个态。玻色子态数为
+  可分辨粒子有 $3^3=27$ 个态。Fermion必须每个单粒子态各占一个，只有 $binom(3, 3)=1$ 个态。Boson态数为
   $
-    binom(3+3-1,3)=10.
+    binom(3+3-1, 3)=10.
   $
 ]
 
 #exercise(subname: [9.3])[
-  两个无相互作用的全同粒子处于 $-a<x<a$ 的无限深势阱中。分别求玻色子和无自旋费米子的基态能量与波函数。
+  两个无相互作用的全同粒子处于 $-a<x<a$ 的无限深势阱中。分别求Boson和无自旋Fermion的基态能量与波函数。
 ]
 #solution[
-  单粒子能量为 $epsilon_n=n^2 pi^2 hbar^2/(8 m a^2)$。玻色子可同时占据 $n=1$，故
+  单粒子能量为 $epsilon_n=n^2 pi^2 hbar^2/(8 m a^2)$。Boson可同时占据 $n=1$，故
   $
     E_B=2 epsilon_1=pi^2 hbar^2/(4m a^2), quad
     Psi_B(x_1,x_2)=phi_1(x_1)phi_1(x_2).
   $
-  无自旋费米子必须占据 $n=1,2$，故
+  无自旋Fermion必须占据 $n=1,2$，故
   $
     E_F=epsilon_1+epsilon_2=5 pi^2 hbar^2/(8 m a^2),
   $
@@ -48,11 +48,11 @@
     〈 x'|hat(x)|x'' 〉=x' delta(x'-x''),
   $
   $
-    〈 x'|hat(p)|x'' 〉=-i hbar pdv(,x')delta(x'-x''),
+    〈 x'|hat(p)|x'' 〉=-i hbar pdv(, x')delta(x'-x''),
   $
   $
     〈 x'|H|x'' 〉=
-    [-hbar^2/(2m)frac(partial^2,partial x'^2)+V(x')]delta(x'-x'').
+    [-hbar^2/(2m)frac(partial^2, partial x'^2)+V(x')]delta(x'-x'').
   $
 ]
 
@@ -61,7 +61,7 @@
 ]
 #solution[
   $
-    〈 p'|hat(x)|p'' 〉=i hbar pdv(,p')delta(p'-p''),
+    〈 p'|hat(x)|p'' 〉=i hbar pdv(, p')delta(p'-p''),
   $
   $
     〈 p'|hat(p)|p'' 〉=p' delta(p'-p''),
@@ -69,7 +69,7 @@
   对解析势可形式地写为
   $
     〈 p'|H|p'' 〉=
-    [p'^2/(2m)+V(i hbar pdv(,p'))]delta(p'-p'').
+    [p'^2/(2m)+V(i hbar pdv(, p'))]delta(p'-p'').
   $
 ]
 
@@ -85,7 +85,7 @@
   $
     〈 p'|x|p'' 〉
     =integral 〈 p'|x 〉 x 〈 x|p'' 〉 dif x
-    =i hbar pdv(,p')delta(p'-p'').
+    =i hbar pdv(, p')delta(p'-p'').
   $
   对 $p$ 及 $H$ 作同样计算即可。
 ]

@@ -9,9 +9,9 @@
   time: "甲辰春夏于清华园",
   contents: true,
   content-depth: 3,
+  font-size: 13pt,
+  par-leading: 0.9em,
 )
-
-#pagebreak(weak: true)
 
 #include "chap1.typ"
 

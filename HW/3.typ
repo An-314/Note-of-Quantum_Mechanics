@@ -4,7 +4,7 @@
 #exercise(subname: [3.1])[
   一维自由粒子的波函数为左右行平面波的叠加
   $
-    psi(x,t)=c_1 exp(i(p x-E t)/hbar)+c_2 exp(-i(p x+E t)/hbar).
+    psi(x, t)=c_1 exp(i(p x-E t)/hbar)+c_2 exp(-i(p x+E t)/hbar).
   $
   求概率流密度。
 ]
@@ -16,12 +16,12 @@
 ]
 
 #exercise(subname: [3.2])[
-  从薛定谔方程导出概率守恒的连续性方程，并证明归一化随时间保持不变。
+  从Schrödinger方程导出概率守恒的连续性方程，并证明归一化随时间保持不变。
 ]
 #proof[
-  将薛定谔方程及其复共轭式分别乘以 $psi^*$、$psi$ 后相减，得
+  将Schrödinger方程及其复共轭式分别乘以 $psi^*$、$psi$ 后相减，得
   $
-    pdv(rho,t)+nabla dot bold(j)=0,
+    pdv(rho, t)+nabla dot bold(j)=0,
   $
   其中 $rho=abs(psi)^2$，$bold(j)=hbar/(2 m i)(psi^* nabla psi-psi nabla psi^*)$。对全空间积分并令无穷远处概率流为零，即有
   $
@@ -82,7 +82,7 @@
   求吸引 $delta$ 势 $V(x)=-gamma delta(x)$（$gamma>0$）的束缚态。
 ]
 #solution[
-  令 $E=-hbar^2 kappa^2/(2m)$，则 $x != 0$ 时可归一化解为 $psi=A exp(-kappa abs(x))$。在原点积分薛定谔方程得跳跃条件
+  令 $E=-hbar^2 kappa^2/(2m)$，则 $x != 0$ 时可归一化解为 $psi=A exp(-kappa abs(x))$。在原点积分Schrödinger方程得跳跃条件
   $
     psi'(0^+)-psi'(0^-)=-2m gamma/hbar^2 psi(0),
   $

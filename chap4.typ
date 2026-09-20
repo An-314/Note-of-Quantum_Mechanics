@@ -5,8 +5,8 @@
 == 量子力学的基本公设
 
 + 公设1：微观体系的状态由波函数描述，波函数满足单值、有限、连续条件
-+ 公设2：波函数的动力学演化满足薛定鄂方程
-+ 公设3：力学量用*厄密算符*表示，且有组成*完备集的本征函数系*
++ 公设2：波函数的动力学演化满足Schrödinger方程
++ 公设3：力学量用*Hermite算符*表示，且有组成*完备集的本征函数系*
 + 公设4：任一波函数可以展开为力学量算符本征函数的线性叠加，测得力学量为本征值$lambda_n$的几率（密度）为展开式中对应本征函数系数的模方$|c_n|^2$#footnote[意思是测量的只能是本征值，而且是又概率的]
 
 == 力学量的算符表示
@@ -26,7 +26,7 @@ $
     hat(arrow(p)) = -i hbar nabla
   $
   $
-    hat(p)_x - i hbar ("d") / ("d" x)
+    hat(p)_x = - i hbar ("d") / ("d"x)
   $
 - *位置算符*
   $
@@ -42,7 +42,7 @@ $
 $
 $f$代表相同的关系函数。
 
-总能量（动能加势能）在分析力学中称为Hamiltonian（哈密顿量），记为H。对于单粒子，
+总能量（动能加势能）在分析力学中称为Hamiltonian，记为H。对于单粒子，
 $
   H = T + U = (arrow(p)^2) / (2m) + U(arrow(r))
 $
@@ -50,6 +50,7 @@ $
 $
   hat(H) = hat(p)^2 / (2m) + V(arrow(r)) = -hbar^2 / (2m) nabla^2 + V(arrow(r))
 $
+#newpara()
 
 轨道角动量的经典表达式是
 $
@@ -59,8 +60,9 @@ $
 $
   hat(L) = hat(arrow(r)) crossproduct hat(arrow(p)) = - i hbar arrow(r) crossproduct nabla
 $
+#newpara()
 
-更准确地说，上面所定义的算符应该称作是“坐标表象”中的算符。用算符来代替经典力学中的力学量，是把经典力学模型“量子化”的步骤的重要部分。
+更准确地说，上面所定义的算符应该称作是*坐标表象*中的算符。用算符来代替经典力学中的力学量，是把经典力学模型“量子化”的步骤的重要部分。
 
 在量子力学中有一些量是没有经典力学的对应物的，比如宇称和自旋角动量。那时我们就要直接从量子力学的分析出发来引进它们的算符。
 
@@ -99,16 +101,16 @@ $
 
 在球坐标系下，微分算符是
 $
-  nabla = (partial) / (partial r) arrow(r) + 1 / r (partial) / (partial theta) arrow(theta) + 1 / (r sin(theta)) (partial) / (partial phi) arrow(phi)
+  nabla = (partial) / (partial r) arrow(r) + 1 / r (partial) / (partial theta) arrow(theta) + 1 / (r sin theta) (partial) / (partial phi) arrow(phi)
 $
 Laplacian算符是
 $
-  nabla^2 &= partial^2 / (partial r^2) + 1 / r (partial) / (partial r) + 1 / r^2 partial^2 / (partial theta^2) + 1 / (r^2 sin(theta)^2) partial^2 / (partial phi^2)\
-  &= 1 / r^2 partial / (partial r) (r^2 partial / (partial r)) + 1 / (r^2 sin(theta)) partial / (partial theta) (sin(theta) partial / (partial theta)) + 1 / (r^2 sin(theta)^2) partial^2 / (partial phi^2)
+  nabla^2 &= partial^2 / (partial r^2) + 1 / r (partial) / (partial r) + 1 / r^2 partial^2 / (partial theta^2) + 1 / (r^2 sin^2 theta) partial^2 / (partial phi^2)\
+  &= 1 / r^2 partial / (partial r) (r^2 partial / (partial r)) + 1 / (r^2 sin theta) partial / (partial theta) (sin theta partial / (partial theta)) + 1 / (r^2 sin^2 theta) partial^2 / (partial phi^2)
 $
 并且有Jacobi行列式
 $
-  dd(x)dd(y)dd(z) = r^2 sin(theta) dd(r) dd(theta) dd(phi)
+  dd(x)dd(y)dd(z) = r^2 sin theta dd(r) dd(theta) dd(phi)
 $
 
 *定义*
@@ -117,12 +119,12 @@ $
 $
 其在球坐标系的表示是
 $
-  hat(arrow(Y)) = partial / (partial theta) arrow(phi) - 1 / sin(theta) partial / (partial phi) arrow(theta)
+  hat(arrow(Y)) = partial / (partial theta) arrow(phi) - 1 / (sin theta) partial / (partial phi) arrow(theta)
 $
 且有
 $
-  hat(Y)^2 &= partial^2 / (partial theta^2) + 1 / sin(theta) partial / (partial theta) + 1 / (sin(theta)^2) partial^2 / (partial phi^2)\
-  &= 1 / sin(theta) partial / (partial theta) (sin(theta) partial / (partial theta)) + 1 / (sin(theta)^2) partial^2 / (partial phi^2)
+  hat(Y)^2 &= partial^2 / (partial theta^2) + 1 / (sin theta) partial / (partial theta) + 1 / (sin^2 theta) partial^2 / (partial phi^2)\
+  &= 1 / (sin theta) partial / (partial theta) (sin theta partial / (partial theta)) + 1 / (sin^2 theta) partial^2 / (partial phi^2)
 $
 于是有
 $
@@ -211,9 +213,9 @@ $
 
 #newpara()
 
-算符$hat(A)$的转置算符$hat(A)^T$：
+算符$hat(A)$的转置算符$hat(A)^TT$：
 $
-  integral psi^* hat(A) phi dd(V) = integral phi hat(A)^T psi^* dd(V)
+  integral psi^* hat(A) phi dd(V) = integral phi hat(A)^TT psi^* dd(V)
 $
 #newpara()
 定义两个波函数的*内积*或标积为
@@ -226,18 +228,18 @@ $
 $
 那么转置算符的定义又可写为
 $
-  (psi, hat(A)^T phi) = (phi^*, hat(A) psi^*)
+  (psi, hat(A)^TT phi) = (phi^*, hat(A) psi^*)
 $
 #newpara()
 
 转置有性质：
 $
-  (hat(A) hat(B))^T = hat(B)^T hat(A)^T\
-  (hat(A) + hat(B))^T = hat(A)^T + hat(B)^T
+  (hat(A) hat(B))^TT = hat(B)^TT hat(A)^TT\
+  (hat(A) + hat(B))^TT = hat(A)^TT + hat(B)^TT
 $
 给出第一个性质的证明：
 $
-  (psi, (hat(A) hat(B))^T phi) = (phi^*, hat(A) hat(B) psi^*) = (hat(B)^* psi, hat(A)^* phi) = (hat(A)^(T*) phi^*, hat(B)^T psi^*) = (phi, hat(B)^T hat(A)^T psi)
+  (psi, (hat(A) hat(B))^TT phi) = (phi^*, hat(A) hat(B) psi^*) = (hat(B)^* psi, hat(A)^* phi) = (hat(A)^(T*) phi^*, hat(B)^TT psi^*) = (phi, hat(B)^TT hat(A)^TT psi)
 $
 
 
@@ -258,11 +260,11 @@ $
   ((hat(A))^(-1))^(-1) = hat(A)
 $
 
-在散射微扰问题中，算符$E - hat(H)_0$的逆算符定义为$(E - hat(H)_0)^(-1)$，也就是与传播子相关的格林函数算符。
+在散射微扰问题中，算符$E - hat(H)_0$的逆算符定义为$(E - hat(H)_0)^(-1)$，也就是与传播子相关的Green函数算符。
 
-=== 算符的厄密共轭算符
+=== 算符的Hermite共轭算符
 
-算符$hat(A)$的厄密共轭算符$hat(A)^dagger$定义为
+算符$hat(A)$的Hermite共轭算符$hat(A)^dagger$定义为
 $
   integral psi^* hat(A) phi dd(V) = integral (hat(A)^dagger psi)^* phi dd(V)
 $
@@ -278,19 +280,19 @@ $
   (hat(A) hat(B))^dagger = hat(B)^dagger hat(A)^dagger
 $
 #newpara()
-算符$hat(A)$为*厄密算符*的条件：
+算符$hat(A)$为*Hermite算符*的条件：
 $
   hat(A)^dagger = hat(A)
 $
 
-== 厄密算符的本征值和本征函数
+== Hermite算符的本征值和本征函数
 
-可以定义*厄密算符*
+可以定义*Hermite算符*
 $
   integral psi^* hat(F) psi dd(V) = integral (hat(F) psi)^* psi dd(V)
 $
 
-=== 厄密算符的本征值
+=== Hermite算符的本征值
 
 *Hermitian算符的本征值都是实数*
 $
@@ -306,30 +308,30 @@ $
 
 不难证明坐标算符和动量算符都是Hermitian算符。在一定条件下，它们的函数也是Hermitian算符。
 
-假设已经证明了$hat(arrow(P))^T = - hat(arrow(P))$，那么有
+假设已经证明了$hat(arrow(P))^TT = - hat(arrow(P))$，那么有
 $
-  hat(arrow(P))^dagger = (hat(arrow(P))^T)^* = - hat(arrow(P))^* = hat(arrow(P))
+  hat(arrow(P))^dagger = (hat(arrow(P))^TT)^* = - hat(arrow(P))^* = hat(arrow(P))
 $
 而对于$hat(arrow(L)) = arrow(r) crossproduct hat(arrow(P))$，有
 $
   hat(arrow(L))_x = y hat(p)_z - z hat(p)_y \
   hat(arrow(L))_x^dagger = hat(p)_z^dagger y - hat(p)_y^dagger z = hat(p)_z y - hat(p)_y z = hat(arrow(L))_x
 $
-
+#newpara()
 径向动量算符$hat(p)_r = hat(r) dot hat(arrow(p))$*不是Hermitian算符*，因为
 $
-  (hat(r) dot hat(arrow(p)))^dagger = hat(arrow(p))^dagger dot hat(r)^dagger = hat(arrow(p)) dot hat(r) = - i hbar (partial / (partial r) hat(r)+ 1 / r hat(theta) + 1 / (r sin(theta)) hat(phi)) dot hat(r) = - i hbar (partial / (partial r) + 2 / r)
+  (hat(r) dot hat(arrow(p)))^dagger = hat(arrow(p))^dagger dot hat(r)^dagger = hat(arrow(p)) dot hat(r) = - i hbar (partial / (partial r) hat(r)+ 1 / r hat(theta) + 1 / (r sin theta) hat(phi)) dot hat(r) = - i hbar (partial / (partial r) + 2 / r)
 $
 于是有
 $
   (hat(r) dot hat(arrow(p)))^dagger = hat(r) dot hat(arrow(p)) - 2 i hbar / r
 $
-所以径向动量算符不是Hermitian算符。但我们可以构造一个厄密算符——*坐标表象*表达式：
+所以径向动量算符不是Hermitian算符。但我们可以构造一个Hermite算符*坐标表象*表达式：
 $
   hat(p)_r = 1 / 2 ((hat(r) dot hat(arrow(p)))^dagger + hat(r) dot hat(arrow(p))) = - i hbar (partial / (partial r) + 1 / (r))
 $
 
-=== 厄密算符的本征函数
+=== Hermite算符的本征函数
 
 正交：若两个函数$psi_1$和$psi_2$满足
 $
@@ -387,7 +389,8 @@ $
 $
 正交要求为：
 $
-  (-i hbar)^3 / (L^3 Delta p_x Delta p_y Delta p_z) e^(i / hbar (Delta p_x a + Delta p_y b + Delta p_z c)) (e^(i / hbar Delta p_x L) - 1) (e^(i / hbar Delta p_y L) - 1) (e^(i / hbar Delta p_z L) - 1) = 0
+  (-i hbar)^3 / (L^3 Delta p_x Delta p_y Delta p_z) e^(i / hbar (Delta p_x a + Delta p_y b + Delta p_z c)) (e^(i / hbar Delta p_x L) - 1) (e^(i / hbar Delta p_y L) - 1) (e^(i / hbar Delta p_z L) - 1) \
+  = 0
 $
 于是有：
 $
@@ -525,7 +528,7 @@ $
 $
 即是三维平面波，任何波函数都可以用它们来展开（函数的Fourier变换）。
 
-*例如：动量算符和哈密顿算符*
+*例如：动量算符和Hamilton算符*
 
 对一维自由粒子来说：
 $
@@ -599,8 +602,8 @@ $
 
 利用上面给出的对易括号的性质和运算法则：
 $
-  [hat(x), hat(F)] = i hbar hat((partial F) / (partial p_x))\
-  [hat(p), hat(F)] = - i hbar hat((partial F) / (partial x))
+  [hat(x), hat(F)] = i hbar (partial hat(F)) / (partial p_x)\
+  [hat(p), hat(F)] = - i hbar (partial hat(F)) / (partial x)
 $
 其中$hat(F) = hat(F)(hat(x), hat(p)) = sum_(m,n = 0)^oo c_(m n) hat(x)^m hat(p)^n$，是算符$hat(x)$和$hat(p)$的多项式。
 
@@ -624,11 +627,11 @@ $
 
 == 波函数按本征函数系展开
 
-一维情形。假设力学量算符$hat(F)$的本征值集是${λ_n, n=1,2,...}$,(离散的、非简并的)，本征函数系是${phi_n(x), n = 1, 2,...}$按叠加原理，
+一维情形。假设力学量算符$hat(F)$的本征值集是${λ_n, n=1,2,...}$,(离散的、非简并的)，本征函数系是${phi_n (x), n = 1, 2,...}$按叠加原理，
 $
   psi(x) = sum_n c_n phi_n (x)
 $
-注意到${phi_n(x)}$是正交归一的，
+注意到${phi_n (x)}$是正交归一的，
 $
   (phi_n, phi_m) = delta_(n m)
 $
@@ -665,15 +668,15 @@ _注：_
 
 量子力学的测量结果是几率性的，比如我们测一个非定态系统的能量，其波函数为：
 $
-  psi(x, t) = sum_n c_n(t) phi_n(x) e^(-i E_n t / hbar)
+  psi(x, t) = sum_n c_n (t) phi_n (x) e^(-i E_n t / hbar)
 $
 在测量以前，系统的状态是许许多多本征态的叠加。测量之后，系统坍缩为某一个本征态：
 $
-  sum_n c_n(t) phi_n(x) e^(-i E_n t / hbar) ->^"测量并读数" phi_n(x) e^(-i E_n t / hbar)
+  sum_n c_n (t) phi_n (x) e^(-i E_n t / hbar) ->^"测量并读数" phi_n (x) e^(-i E_n t / hbar)
 $
 这一过程称为*“波包坍缩”*（von Neumann，1932年）。
 
-波包坍缩的动力学过程至今仍在研究（不服从薛定谔方程）。量子力学关于测量的假定是理论的基本假定之一，是量子力学目前无法解释的。比如，在对粒子做空间位置测量后的一刻，其波函数坍缩为
+波包坍缩的动力学过程至今仍在研究（不服从Schrödinger方程）。量子力学关于测量的假定是理论的基本假定之一，是量子力学目前无法解释的。比如，在对粒子做空间位置测量后的一刻，其波函数坍缩为
 $
   psi(x) = delta(x - x_0)
 $
@@ -816,7 +819,7 @@ $
     phi_n
   )
 $
-*把系数矩阵对角化(厄密矩阵可以对对角化)，就得到了$hat(G)$的本征值和本征函数。*
+*把系数矩阵对角化(Hermite矩阵可以对对角化)，就得到了$hat(G)$的本征值和本征函数。*
 
 存在$n times n$的变换矩阵$U$，使得
 $
@@ -947,16 +950,17 @@ $
 $
   [hat(F), hat(G)] = i hat(C) != 0
 $
-其中$hat(C)$是厄密算符，考虑积分不等式：
+其中$hat(C)$是Hermite算符，考虑积分不等式：
 $
   I(xi) = integral |(xi Delta hat(F) - i Delta hat(G))psi|^2 dd(tau) >= 0
 $
 其中$psi$为体系的任一态，$xi$为任意实数。化简得到：
 $
-  I(xi) &= integral (xi(Delta hat(F) psi)^* + i (Delta hat(G) psi)^*) (xi Delta hat(F) psi - i Delta hat(G) psi) dd(tau) \
-  &= xi^2 integral (Delta hat(F) psi)^* (Delta hat(F)) psi dd(tau) + i xi integral (Delta hat(G) psi)^* (Delta hat(F) psi) dd(tau) - i xi integral (Delta hat(F) psi)^* (Delta hat(G) psi) dd(tau) + integral (Delta hat(G) psi)^* (Delta hat(G) psi) dd(tau) \
-  &=^"Hermit性质" xi^2 integral psi^* (Delta hat(F))^2 psi dd(tau) + xi integral psi^* (Delta hat(G) Delta hat(F) + Delta hat(F) Delta hat(G)) psi dd(tau) + integral psi^* (Delta hat(G))^2 psi dd(tau) \
-  &= xi^2 macron(Delta hat(F)^2) + xi macron(hat(C)) + macron(Delta hat(G)^2) >= 0
+  I(xi) =& integral (xi(Delta hat(F) psi)^* + i (Delta hat(G) psi)^*) (xi Delta hat(F) psi - i Delta hat(G) psi) dd(tau) \
+  =& xi^2 integral (Delta hat(F) psi)^* (Delta hat(F)) psi dd(tau) + i xi integral (Delta hat(G) psi)^* (Delta hat(F) psi) dd(tau)\
+  & - i xi integral (Delta hat(F) psi)^* (Delta hat(G) psi) dd(tau) + integral (Delta hat(G) psi)^* (Delta hat(G) psi) dd(tau) \
+  =^"Hermit性质"& xi^2 integral psi^* (Delta hat(F))^2 psi dd(tau) + xi integral psi^* (Delta hat(G) Delta hat(F) + Delta hat(F) Delta hat(G)) psi dd(tau) + integral psi^* (Delta hat(G))^2 psi dd(tau) \
+  =& xi^2 macron(Delta hat(F)^2) + xi macron(hat(C)) + macron(Delta hat(G)^2) >= 0
 $
 这是一个关于$xi$的二次函数，所以它的判别式小于等于0，得到*Heisenberg不确定关系*：
 $
@@ -1036,16 +1040,16 @@ $hat(L)_x$和$hat(L)_z$不对易，所以不能同时有确定值。
 
 角动量算符（轨道角动量）的定义是：
 $
-  hat(L) = hat(r) crossproduct hat(p) = - i hbar hat(r) crossproduct nabla\
-  hat(L)_z = - i hbar (x partial / (partial y) - y partial / (partial x))\
-  hat(L)^2 = hat(L)_x^2 + hat(L)_y^2 + hat(L)_z^2
+    hat(L) & = hat(r) crossproduct hat(p) = - i hbar hat(r) crossproduct nabla \
+  hat(L)_z & = - i hbar (x partial / (partial y) - y partial / (partial x)) \
+  hat(L)^2 & = hat(L)_x^2 + hat(L)_y^2 + hat(L)_z^2
 $
 角动量算符的球坐标表示为：
 $
-  hat(L)_x &= i hbar (sin(phi) partial / (partial theta) + cot(theta) cos(phi) partial / (partial phi))\
-  hat(L)_y &= - i hbar (cos(phi) partial / (partial theta) - cot(theta) sin(phi) partial / (partial phi))\
+  hat(L)_x &= i hbar (sin phi partial / (partial theta) + cot theta cos phi partial / (partial phi))\
+  hat(L)_y &= - i hbar (cos phi partial / (partial theta) - cot theta sin phi partial / (partial phi))\
   hat(L)_z &= - i hbar partial / (partial phi)\
-  hat(L)^2 &= - hbar^2 (1 / sin(theta) partial / (partial theta) (sin(theta) partial / (partial theta)) + 1 / (sin(theta)^2) partial^2 / (partial phi^2))
+  hat(L)^2 &= - hbar^2 (1 / (sin theta) partial / (partial theta) (sin theta partial / (partial theta)) + 1 / (sin^2 theta) partial^2 / (partial phi^2))
 $
 
 == $hat(L)_z$的本征值和本征函数
@@ -1092,7 +1096,7 @@ $
 $
 它的解是连带Legendre函数：
 $
-  P_l^m (cos theta) = 1 / (2^l l!)(1 - cos^2 theta)^(m / 2) dd("")^(l+m) / (d cos^(l+m) theta) (w^2 - 1)^l , |m| <= l
+  P_l^m (cos theta) = 1 / (2^l l!)(1 - cos^2 theta)^(m / 2) dd("")^(l+m) / ("d" cos^(l+m) theta) (w^2 - 1)^l , |m| <= l
 $
 其正交归一性是：
 $
@@ -1165,8 +1169,9 @@ $l = 0,1,2,...$，对应SPDF态。对于给定的$l$，$m = -l, -l + 1, ..., l$�
   $
 7. 两点距离倒数的展开：
   $
-    1 / abs(arrow(r) - arrow(r')) = 1 / r (1 + r'^2 / r^2 - 2 r' / r cos gamma)^(-1 / 2) = cases(
-       1 / r sum_(l = 0)^oo (r' / r)^l P_l (cos gamma) & "if" r > r' \
+    1 / abs(arrow(r) - arrow(r')) = 1 / r (1 + r'^2 / r^2 - 2 r' / r cos gamma)^(-1 / 2) \
+    = cases(
+      1 / r sum_(l = 0)^oo (r' / r)^l P_l (cos gamma) & "if" r > r',
       1 / r' sum_(l = 0)^oo (r / r')^l P_l (cos gamma) & "if" r < r'
     )
   $
@@ -1184,15 +1189,15 @@ $l = 0,1,2,...$，对应SPDF态。对于给定的$l$，$m = -l, -l + 1, ..., l$�
 
 == 不含时$hat(H)$的本征函数
 
-定态薛定谔方程：
+定态Schrödinger方程：
 $
   hat(H) psi = E psi
 $
-其中$hat(H)$是哈密顿算符，$E$是能量本征值，$phi$是能量本征函数。薛定谔方程的解是：
+其中$hat(H)$是Hamilton算符，$E$是能量本征值，$phi$是能量本征函数。Schrödinger方程的解是：
 $
   psi(arrow(r), t) = sum_n a_n (t) phi_n (arrow(r))
 $
-带入薛定谔方程，得到：
+带入Schrödinger方程，得到：
 $
   i hbar partial / (partial t) psi(arrow(r), t) = hat(H) psi(arrow(r), t)\
   sum_n i hbar dd(a_n (t)) / dd(t) phi_n (arrow(r)) = sum_n a_n (t) hat(H) phi_n (arrow(r))\
@@ -1203,7 +1208,7 @@ $
 $
 解得：
 $
-  a_n (t) = a_n(0) e^(-i / hbar E_n t)
+  a_n (t) = a_n (0) e^(-i / hbar E_n t)
 $
 所以：
 $
@@ -1219,7 +1224,7 @@ $
 $
 即*系统在任意时刻的能量几率分布都和初始时刻的能量几率分布相同*。
 
-在$hat(H)$和时间无关的情况下，只要我们完全地解决了定态薛定谔方程的问题，那么一旦知道了波函数的初始值，与时间有关的Schrödinger方程的解就可以很方便地得出。形式地说，这个解是
+在$hat(H)$和时间无关的情况下，只要我们完全地解决了定态Schrödinger方程的问题，那么一旦知道了波函数的初始值，与时间有关的Schrödinger方程的解就可以很方便地得出。形式地说，这个解是
 $
   Psi(arrow(r), t) = e^(-i / hbar hat(H) t) Psi(arrow(r), 0)
 $
@@ -1246,7 +1251,7 @@ $
 $
   psi(x, t) & = e^(-i / hbar hat(H) t) psi(x, 0) \
 $
-其中*自由粒子的哈密顿算符的本征函数是平面波*：
+其中*自由粒子的Hamilton算符的本征函数是平面波*：
 $
   psi(x, t) &= e^(-i / hbar hat(H) t) psi(x, 0)\
   &= e^(-i / hbar hat(H) t) 1 / sqrt(2pi) integral e^(-i / hbar hat(H) t) psi(k) dd(k)\
@@ -1270,7 +1275,7 @@ $
 $
   sigma_t = sigma sqrt(1 + (hbar^2 t^2) / (4 m^2 sigma^2))
 $
-波包宽度随时间增大，即波包发散。这反驳了薛定谔对其波函数即是粒子的夸大解释。
+波包宽度随时间增大，即波包发散。这反驳了Schrödinger对其波函数即是粒子的夸大解释。
 
 对于位置算符的本征态$delta(x)$，对其做时间演化：
 $
@@ -1295,12 +1300,12 @@ $
 $
 如此便产生了平均值随时间变化的结果。平均值随时间变化的原因一般有：
 - 力学量算符本身显含时间
-- 力学量算符与哈密顿算符不对易
-我们假设系统的哈密顿量是与时间无关的
+- 力学量算符与Hamilton算符不对易
+我们假设系统的Hamilton量是与时间无关的
 $
   dd(macron(F)) / dd(t) = integral dd(psi^* (arrow(r),t)) / dd(t) hat(F) psi(arrow(r), t) + psi^* (arrow(r),t) hat(F) dd(psi(arrow(r), t)) / dd(t) dd(tau)
 $
-将薛定谔方程代入，得到
+将Schrödinger方程代入，得到
 $
   dd(macron(F)) / dd(t) &= (1 / i hbar) integral psi^* (arrow(r),t) hat(H) hat(F) psi(arrow(r), t) - psi^* (arrow(r),t) hat(F) hat(H) psi(arrow(r), t) dd(tau)\
   &= (1 / i hbar) integral psi^* (arrow(r),t) [hat(H), hat(F)] psi(arrow(r), t) dd(tau)
@@ -1309,7 +1314,7 @@ $
 $
   dd(macron(F)) / dd(t) = 1 / (i hbar) macron([hat(H), hat(F)]) + macron(dd(hat(F)) / dd(t))
 $
-从上面公式容易发现，力学量F平均值不变的充分条件是力学算符$hat(F)$本身不显含时间，同时$hat(F)$与哈密顿算符$hat(H)$对易。
+从上面公式容易发现，力学量F平均值不变的充分条件是力学算符$hat(F)$本身不显含时间，同时$hat(F)$与Hamilton算符$hat(H)$对易。
 
 这个条件也保证了力学量$F$可以和$H$（也就是能量）同时有确定值，或者说算符$hat(F)$和$hat(H)$有共同本征函数系。这时，描写算符$hat(F)$的本征值的那个量子数被称为*“好量子数”*。
 
@@ -1317,13 +1322,13 @@ $
 
 == 对易与守恒量
 
-*定理：如果力学量算符$hat(A)$不显含时间，且与也不显含时间的哈密顿算符$hat(H)$对易，则$A$为守恒量（$hat(A)$在任意态下的平均值和所有可能测值的几率都守恒，不随时间变化）*
+*定理：如果力学量算符$hat(A)$不显含时间，且与也不显含时间的Hamilton算符$hat(H)$对易，则$A$为守恒量（$hat(A)$在任意态下的平均值和所有可能测值的几率都守恒，不随时间变化）*
 
 我们可以选取其共同本征函数系$(psi_n)$来展开任一波函数
 $
-  psi(arrow(r), t) = sum_n a_n (t) psi_n (arrow(r))\
-  hat(H) psi_n = E_n psi_n\
-  hat(A) psi_n = a_n psi_n
+  psi(arrow(r), t) & = sum_n a_n (t) psi_n (arrow(r)) \
+      hat(H) psi_n & = E_n psi_n \
+      hat(A) psi_n & = a_n psi_n
 $
 
 于是在$n$态的概率随时间的变化为：
@@ -1385,7 +1390,7 @@ $
 
 2.*如果体系有一个守恒量$A$和一个非简并的能级$E$，则此能级对应的本征态也是$hat(A)$的本征态*
 
-这一能级$E$对应的本征态为$psi$，则因为守恒量$hat(A)$和哈密顿算符$hat(H)$对易，所以$hat(A) psi$也是$E$的本征态。又因为能级$E$无简并，所以$hat(A) psi$和$psi$线性相关，即$psi$是$hat(A)$的本征态。
+这一能级$E$对应的本征态为$psi$，则因为守恒量$hat(A)$和Hamilton算符$hat(H)$对易，所以$hat(A) psi$也是$E$的本征态。又因为能级$E$无简并，所以$hat(A) psi$和$psi$线性相关，即$psi$是$hat(A)$的本征态。
 
 例如一维线性谐振子能级无简并，宇称算符与$hat(H)$对易，所以谐振子的能量本征态必有确定的宇称
 
@@ -1411,7 +1416,7 @@ $
 $
   macron(T) + macron(V) = macron(H) = E
 $
-其中$T$和$V$分别是哈密顿量中的动能和势能项，假设$V$仅仅是位置的函数。通过Virial定理，我们可以进一步定出$T$和$V$之间的关系。设$psi$为能级$E$的本征函数，则
+其中$T$和$V$分别是Hamilton量中的动能和势能项，假设$V$仅仅是位置的函数。通过Virial定理，我们可以进一步定出$T$和$V$之间的关系。设$psi$为能级$E$的本征函数，则
 $
   (hat(T) + hat(V)) psi &= E psi\
   sum_i hat(x)_i hat(p)_i (hat(T) + hat(V) - E) psi &= 0\
@@ -1496,7 +1501,7 @@ $
   arrow(F) = m arrow(a) = dd(arrow(p)) / dd(t)\
   arrow(p) = m arrow(v) = m dd(arrow(r)) / dd(t)
 $
-量子力学中哈密顿算符：
+量子力学中Hamilton算符：
 $
   hat(H) = (hat(p)^2) / (2m) + V(hat(x))
 $
@@ -1577,7 +1582,7 @@ $
 $
   hat(U)(epsilon) = I + i epsilon hat(F) + O(epsilon^2)
 $
-利用$hat(U)$的幺正性，可以得到$hat(F)$的厄密性：
+利用$hat(U)$的幺正性，可以得到$hat(F)$的Hermite性：
 $
   hat(U)^dagger hat(U) = (I - i epsilon hat(F)^dagger) (I + i epsilon hat(F)) = I - i epsilon (hat(F) - hat(F)^dagger)= I\
   hat(F) = hat(F)^dagger
@@ -1615,7 +1620,7 @@ $
 
 *不可能有这样一台设备，能够完美复制任意量子比特，而不对此量子比特产生干扰。*
 
-证：设任意量子比特$A$的波函数为$psi(x)$，复制前某量子比特$B$的波函数为$phi(y)$，复制之后变为和$A$相同，即$psi(y)$。要改变$B$的量子状态，可以通过测量，或者调整系统哈密顿算符，使得经过时间演化后$B$和$A$的状态相等。测量可能会改变$A$的状态，所以我们使用时间演化算符$hat(U)(t)$ ，对系统$( A + B )$做一个幺正变换。
+证：设任意量子比特$A$的波函数为$psi(x)$，复制前某量子比特$B$的波函数为$phi(y)$，复制之后变为和$A$相同，即$psi(y)$。要改变$B$的量子状态，可以通过测量，或者调整系统Hamilton算符，使得经过时间演化后$B$和$A$的状态相等。测量可能会改变$A$的状态，所以我们使用时间演化算符$hat(U)(t)$ ，对系统$( A + B )$做一个幺正变换。
 
 #grid(
   columns: 3,
@@ -1693,16 +1698,16 @@ $
   hat(U) hat(x)^n hat(U)^dagger = (i hbar dd("") / dd(p))^n 1_(p' -> p)
 $
 #newpara()
-傅里叶幺正变换对哈密顿算符的变换：
+傅里叶幺正变换对Hamilton算符的变换：
 $
   hat(U) hat(H) hat(U)^dagger & = hat(U) (hat(p)^2 / (2m) + V(hat(x))) hat(U)^dagger \
                               & = p^2 / (2m) + V(i hbar dd("") / dd(p))
 $
-也就是说，在*坐标表象*中，哈密顿算符形式为
+也就是说，在*坐标表象*中，Hamilton算符形式为
 $
   hat(H) = - hbar^2 / (2m) dd("")^2 / dd(x)^2 + V(x)
 $
-幺正变换到*动量表象*中，哈密顿算符形式为
+幺正变换到*动量表象*中，Hamilton算符形式为
 $
   hat(H) = p^2 / (2m) + V(i hbar dd("") / dd(p))
 $
@@ -1744,11 +1749,11 @@ $
 - 一些常见的势在坐标表象下是定域的
 - 容易讨论量子力学和经典力学的关系
 
-坐标表象中的定态薛定鄂方程：
+坐标表象中的定态Schrödinger方程：
 $
   (- hbar^2 / (2m) dd("")^2 / dd(x)^2 + V(x)) psi (x) = E psi (x)
 $
-动量表象中的定态薛定鄂方程：
+动量表象中的定态Schrödinger方程：
 $
   (p^2 / (2m) + V(i hbar dd("") / dd(p))) phi (p) = E phi (p)
 $
@@ -1756,11 +1761,11 @@ $
 
 === 简谐振子的傅里叶变换
 
-一维简谐振子的哈密顿算符为
+一维简谐振子的Hamilton算符为
 $
   hat(H) = hat(p)^2 / (2m) + 1 / 2 m omega^2 hat(x)^2
 $
-在坐标表象中，哈密顿算符形式为
+在坐标表象中，Hamilton算符形式为
 $
   hat(H) = - hbar^2 / (2m) dd("")^2 / dd(x)^2 + 1 / 2 m omega^2 x^2
 $
@@ -1792,7 +1797,7 @@ $
 
 _把假设条件加强，如果只对波函数或算符二者其一进行幺正变换，而量子力学规律不变，会有什么物理结果?_
 
-首先证明二者是等价的。薛定鄂方程：
+首先证明二者是等价的。Schrödinger方程：
 $
   i hbar partial / (partial t) psi = hat(H) psi
 $
@@ -1805,20 +1810,20 @@ $
 $
   i hbar hat(U)^(-1) partial / (partial t) psi' & = hat(U)^(-1) hat(H) hat(U) psi \
 $
-与原薛定鄂方程作对比，同时注意到$psi$是薛定鄂方程的任意解，所以有
+与原Schrödinger方程作对比，同时注意到$psi$是Schrödinger方程的任意解，所以有
 $
   hat(H) = hat(U)^(-1) hat(H) hat(U)
 $
 也就是说，*只对波函数进行幺正变换而量子力学规律不变，可以等效为只对系统算符进行幺正变换而量子力学规律不变*。
 
-哈密顿算符$hat(H)$幺正变换不变的意义：
+Hamilton算符$hat(H)$幺正变换不变的意义：
 $
   hat(U) hat(H) hat(U)^(-1)= hat(H) \
   [hat(U), hat(H)] = 0\
   [1 + i epsilon hat(F), hat(H)] = 0\
   [hat(F), hat(H)] = 0
 $
-也就是说，如果*哈密顿算符幺正变换不变，那么此幺正变换对应的生成元是守恒量*。
+也就是说，如果*Hamilton算符幺正变换不变，那么此幺正变换对应的生成元是守恒量*。
 
 *Noether定理的量子版本*：每当量子系统存在一种对称性（$hat(H)$幺正不变性），就相应的存在一个守恒律和守恒量。
 
@@ -1847,7 +1852,7 @@ $
                   & = sum^oo_(n=0) 1 / n! ((i tau) / hbar hat(H))^n psi(x, t) \
                   & = e^(i / hbar tau hat(H)) psi(x, t)
 $
-用到了薛定鄂方程($hat(H)$不含时)：
+用到了Schrödinger方程($hat(H)$不含时)：
 $
   dd(psi) / dd(t) = hat(H) / (i hbar) psi\
   (dd("") / dd(t))^n psi = (hat(H) / (i hbar))^n psi\
@@ -1946,7 +1951,7 @@ $
   e^(-i / hbar arrow(alpha) dot hat(arrow(L))) Y_(l m) (theta, phi) = sum_(m = -l)^l c_m Y_(l m) (theta, phi)
 $
 
-对于中心力场问题（氢原子），哈密顿算符在空间转动变换下不变，因而角动量的三个分量都是守恒量。
+对于中心力场问题（氢原子），Hamilton算符在空间转动变换下不变，因而角动量的三个分量都是守恒量。
 
 能量守恒、动量守恒、角动量守恒都是时空对称性的体现，这在经典物理学中都有。但是，量子物理学还有经典中没有的更丰富的对称性，如空间反射和全同粒子交换对称性等——系统内禀对称性。
 
@@ -1984,7 +1989,7 @@ $
 $
   P_(a b) = (-1)^l\
 $
-若反应过程宇称守恒（哈密顿量中相关势能项与宇称算符对易），则
+若反应过程宇称守恒（Hamilton量中相关势能项与宇称算符对易），则
 $
   P_a P_b (-1)^l = P_c P_d (-1)^l'
 $
@@ -2063,21 +2068,21 @@ $
 $
 得到$C = ±1$，这个$C$称为粒子的统计性。
 
-- 如果$C = 1$，则称为玻色子，玻色子的波函数是对称的，满足波函数交换对称性。
-- 如果$C = -1$，则称为费米子，费米子的波函数是反对称的，满足波函数交换对称性。
+- 如果$C = 1$，则称为Boson，Boson的波函数是对称的，满足波函数交换对称性。
+- 如果$C = -1$，则称为Fermion，Fermion的波函数是反对称的，满足波函数交换对称性。
 
 交换对称性或反对称性是全同粒子体系波函数的特殊的、固有的性质，因此也是（微观）粒子的特殊的、固有的性质。它决定了粒子所服从的统计规律。
 
-- 自旋为整数的粒子，波函数是交换对称的，服从Bose-Einstein统计，称为玻色子。例如光子（自旋为1）、介子（自旋为0）
-- 自旋为半整数的粒子，波函数是交换反对称的，服从Fermi-Dirac统计，称为费米子。例如电子、质子、中子（自旋都是ℏ/2）
+- 自旋为整数的粒子，波函数是交换对称的，服从Bose-Einstein统计，称为Boson。例如光子（自旋为1）、介子（自旋为0）
+- 自旋为半整数的粒子，波函数是交换反对称的，服从Fermi-Dirac统计，称为Fermion。例如电子、质子、中子（自旋都是ℏ/2）
 
-原子核、原子、分子这样的粒子是由质子、中子、电子这些更“基本的”粒子组成的，我们把它们称为“复合粒子”。如果复合粒子的内部自由度是“冻结”的，我们也可以把它们看做是“基本”粒子。如果一个复合粒子包含偶数个费米子，那么它是玻色子；如果它包含奇数个费米子，那么它还是费米子。它所包含的玻色子的数目对此毫无影响。
+原子核、原子、分子这样的粒子是由质子、中子、电子这些更“基本的”粒子组成的，我们把它们称为“复合粒子”。如果复合粒子的内部自由度是“冻结”的，我们也可以把它们看做是“基本”粒子。如果一个复合粒子包含偶数个Fermion，那么它是Boson；如果它包含奇数个Fermion，那么它还是Fermion。它所包含的Boson的数目对此毫无影响。
 
-事实上，这正是因为偶数个费米子的总自旋一定是整数，而奇数个费米子的总自旋一定是半整数，这一点可以由角动量的合成规则得到说明。
+事实上，这正是因为偶数个Fermion的总自旋一定是整数，而奇数个Fermion的总自旋一定是半整数，这一点可以由角动量的合成规则得到说明。
 
 == 交换对称或反对称波函数的构成
 
-一般地说，一个全同粒子体系的波函数是解 schrödinger 方程得到的，未必有确定的交换对称性。所以我们要对它进行“对称化”或“反对称化”。这里只考虑比较简单的情形：*无耦合体系*，即体系的总波函数是单个粒子波函数的乘积：
+一般地说，一个全同粒子体系的波函数是解 Schrödinger 方程得到的，未必有确定的交换对称性。所以我们要对它进行“对称化”或“反对称化”。这里只考虑比较简单的情形：*无耦合体系*，即体系的总波函数是单个粒子波函数的乘积：
 $
   psi(q_1, ..., q_N) = psi_1 (q_1) psi_2 (q_2) ... psi_N (q_N)
 $
@@ -2110,7 +2115,7 @@ $
 $
   psi_a (q_1, q_2, ..., q_N) = 0
 $
-*Pauli不相容原理*：不可能有两个或更多的费米子处于完全相同的量子状态中。这是量子力学基本公理之一，它在统计物理中起重要的作用。
+*Pauli不相容原理*：不可能有两个或更多的Fermion处于完全相同的量子状态中。这是量子力学基本公理之一，它在统计物理中起重要的作用。
 
 例如，对于两个粒子经典中：
 $
@@ -2126,7 +2131,7 @@ $
 
 到目前为止，我们已经了解了量子力学的一系列与经典物理不同的表现：
 
-- 粒子的运动由波函数决定，是几率性的，其动力学演化由薛定鄂方程决定
+- 粒子的运动由波函数决定，是几率性的，其动力学演化由Schrödinger方程决定
 - 力学量测量值由波函数本征值决定，其平均值是相应力学量算符在波函数中的积分平均
 - 力学量之间能否同时取确定值由力学量算符之间的对易关系决定；不能同时取确定值的情况导致不确定关系
 
@@ -2154,7 +2159,7 @@ $
 
 == Pauli不相容原理
 
-最初不相容原理是Pauli综合反常塞曼效应、原子不同壳层电子数为偶数等现象归纳得到的，Pauli引入了电子自旋的概念来解释壳外电子的填充规律。
+最初不相容原理是Pauli综合反常Zeeman效应、原子不同壳层电子数为偶数等现象归纳得到的，Pauli引入了电子自旋的概念来解释壳外电子的填充规律。
 
 粒子物理后来发展中遇到了$Delta^(++)$粒子：
 $
@@ -2181,7 +2186,7 @@ $
 $
   P(r) = integral |psi(arrow(R), arrow(r))|^2 dd(""^3arrow(R)) r^2 dd(omega) = A / (4 pi) r^2 integral dd(omega) = A r^2
 $
-2. 两个全同玻色子
+2. 两个全同Boson
 $
   psi_+ (arrow(r)_1, arrow(r)_2) = 1 / sqrt(2) (psi(arrow(r)_1) psi(arrow(r)_2) + psi(arrow(r)_2) psi(arrow(r)_1))
 $
@@ -2191,9 +2196,10 @@ $
 $
 在以一个粒子为中心，半径$r→r+dd(r)$的球壳内找到另一个粒子的几率密度为：
 $
-  P(r) = integral |psi_+ (arrow(R), arrow(r))|^2 dd(""^3arrow(R)) r^2 dd(omega) = A / (4 pi) r^2 integral 2 cos^2(k r cos theta)dd(omega) = A r^2 (1 + (sin 2 k r) / (2 k r))
+  P(r) &= integral |psi_+ (arrow(R), arrow(r))|^2 dd(""^3arrow(R)) r^2 dd(omega) = A / (4 pi) r^2 integral 2 cos^2(k r cos theta)dd(omega) \
+  &= A r^2 (1 + (sin 2 k r) / (2 k r))
 $
-3. 两个全同费米子
+3. 两个全同Fermion
 $
   psi_- (arrow(r)_1, arrow(r)_2) = 1 / sqrt(2) (psi(arrow(r)_1) psi(arrow(r)_2) - psi(arrow(r)_2) psi(arrow(r)_1))
 $
@@ -2203,7 +2209,8 @@ $
 $
 在以一个粒子为中心，半径$r→r+dd(r)$的球壳内找到另一个粒子的几率密度为：
 $
-  P(r) = integral |psi_- (arrow(R), arrow(r))|^2 dd(""^3arrow(R)) r^2 dd(omega) = A / (4 pi) r^2 integral 2 sin^2(k r cos theta)dd(omega) = A r^2 (1 - (sin 2 k r) / (2 k r))
+  P(r) &= integral |psi_- (arrow(R), arrow(r))|^2 dd(""^3arrow(R)) r^2 dd(omega) = A / (4 pi) r^2 integral 2 sin^2(k r cos theta)dd(omega) \
+  &= A r^2 (1 - (sin 2 k r) / (2 k r))
 $
 
 #figure(
@@ -2214,13 +2221,13 @@ $
 )
 - 对称空间波函数 → 两粒子相互靠近的几率增大
 - 反对称空间波函数 → 两粒子相互排斥的几率增大
-似乎在全同粒子间存在一种作用力，对玻色子来说是吸引力，对费米子来说是排斥力。这种力称为交换力，它不是一种真正意义上的力，无施力者。在$r→∞$时，这种交换力消失。
+似乎在全同粒子间存在一种作用力，对Boson来说是吸引力，对Fermion来说是排斥力。这种力称为交换力，它不是一种真正意义上的力，无施力者。在$r→∞$时，这种交换力消失。
 
 == 全同粒子系统的量子特性
 
-- 全同*玻色子*系统在低温下呈现*超流*效应——具有量子特性的宏观物体（玻色-爱因斯坦凝聚）
-- 全同*费米子*系统在低温下呈现*超导*效应——电子之间两两结成*库派对*（复合玻色子）
-- Pauli不相容原理使全同费米子体系无法聚集——导致日常物体占有的空间尺度
+- 全同*Boson*系统在低温下呈现*超流*效应——具有量子特性的宏观物体（Bose-Einstein凝聚）
+- 全同*Fermion*系统在低温下呈现*超导*效应——电子之间两两结成*库帕对*（复合Boson）
+- Pauli不相容原理使全同Fermion体系无法聚集——导致日常物体占有的空间尺度
 - 电子在白矮星内部提供简并压力抵抗重力崩塌，但当其质量大于1.4倍太阳质量时电子被压入质子内部形成中子星，中子星内部压强改由中子的简并提供
 
 === BSC理论
@@ -2234,7 +2241,7 @@ $
 #pagebreak(weak: true)
 
 
-= 量子力学的矩阵形式与狄拉克(Dirac)符号
+= 量子力学的矩阵形式与Dirac(Dirac)符号
 
 == 波函数的矩阵表示
 
@@ -2258,7 +2265,7 @@ $
 $
   psi(t) = mat(a_1 (t); a_2 (t); dots.v; a_n (t); dots.v)
 $
-厄密共轭态矢量排成行矩阵的形式：
+Hermite共轭态矢量排成行矩阵的形式：
 $
   psi^dagger = mat(a_1^*, a_2^*, dots, a_n^*, dots)
 $
@@ -2322,7 +2329,7 @@ $
 $
   F^* = F^TT , F^dagger = F
 $
-这就是说，*算符$hat(F)$在$hat(Q)$表象中的矩阵是厄密的*。
+这就是说，*算符$hat(F)$在$hat(Q)$表象中的矩阵是Hermite的*。
 
 恒等算符在$hat(Q)$表象中的矩阵表示是单位矩阵。
 
@@ -2472,7 +2479,7 @@ $
 1. 态的归一：$psi^dagger psi=1$, 两态正交：$phi^dagger psi=0$
 2. 力学量的平均值（若 $psi$ 已归一）：$macron(F) = psi^dagger F psi$
 3. 本征方程：$hat(F) psi = lambda psi$
-4. 含时间的薛定鄂方程：$i hbar partial / (partial t) psi = H psi$
+4. 含时间的Schrödinger方程：$i hbar partial / (partial t) psi = H psi$
 
 === 离散表象中的本征方程的解法
 
@@ -2498,7 +2505,7 @@ $
 $
 即*久期方程*。
 
-如果$F$是$n×n$矩阵，则是关于$lambda$的$n$次多项式方程。根据“代数基本定理”，在复数域内，$n$次代数方程一定有$n$个根，这些根就是本征值。另外，矩阵$F$的的厄密性保证了这些根都是实数。
+如果$F$是$n×n$矩阵，则是关于$lambda$的$n$次多项式方程。根据“代数基本定理”，在复数域内，$n$次代数方程一定有$n$个根，这些根就是本征值。另外，矩阵$F$的的Hermite性保证了这些根都是实数。
 
 把这些本征值记为${lambda_i}$, 再代回方程，假设没有重根
 $
@@ -2675,7 +2682,7 @@ $
 $
   P_n^2 = P_n
 $
-对于连续谱，狄拉克态矢的正交归一表示为
+对于连续谱，Dirac态矢的正交归一表示为
 $
   braket(lambda_1, lambda_2) = delta(lambda_1 - lambda_2)
 $
@@ -2683,7 +2690,7 @@ $
 $
   x delta(x - x_0) = x_0 delta(x - x_0)
 $
-狄拉克符号表示
+Dirac符号表示
 $
   x ket(x_0) = x_0 ket(x_0)
 $
@@ -2705,7 +2712,7 @@ $
   braket(p, p') = delta(p - p')
 $
 #newpara()
-基底完备性条件用狄拉克符号的表达：
+基底完备性条件用Dirac符号的表达：
 $
   sum_n ket(n) bra(n) = I
 $
@@ -2759,11 +2766,11 @@ $
 $
 就是算符$hat(L)$在$F$表象中的矩阵元。
 
-算符$hat(L)$的狄拉克符号表示为：
+算符$hat(L)$的Dirac符号表示为：
 $
   hat(L) = sum_(j k) L_(j k) ket(j) bra(k) = sum_(j k) ket(j) bra(j) hat(L) ket(k) bra(k)
 $
-算符$hat(F)$在其自身$F$表象中的矩阵元和狄拉克符号表示为：
+算符$hat(F)$在其自身$F$表象中的矩阵元和Dirac符号表示为：
 $
   F_(m n) = bra(m) hat(F) ket(n) = bra(m) f_n ket(n) = f_n delta_(m n)\
   hat(F) = sum_n f_n ket(n) bra(n)
@@ -2789,7 +2796,7 @@ $
 
 == 中心力场两体问题化为单体问题
 
-中心力场中两体问题的定态薛定谔方程：
+中心力场中两体问题的定态Schrödinger方程：
 $
   (-hbar^2 / (2 m_1) nabla^2_1 -hbar^2 / (2 m_2) nabla^2_2+ U(abs(arrow(r)_1 - arrow(r)_2))) Psi(arrow(r)_1, arrow(r)_2) = E_"tot" Psi(arrow(r)_1, arrow(r)_2)
 $
@@ -2830,7 +2837,7 @@ $
 $
   1 / m_1 nabla^2_1 + 1 / m_2 nabla^2_2 = 1 / M nabla^2_R + 1 / mu nabla^2_r
 $
-于是定态薛定谔方程转换为：
+于是定态Schrödinger方程转换为：
 $
   (-hbar^2 / (2 M) nabla^2_R - hbar^2 / (2 mu) nabla^2_r + U(r)) psi(arrow(R), arrow(r)) = E_"tot" psi(arrow(R), arrow(r))
 $
@@ -3098,13 +3105,15 @@ $
   g = M_z / L_z = (- m mu_B) / (m hbar) = - e / (2 mu)
 $
 
+#pagebreak()
+
 = 中心力场问题——三维各向同性谐振子
 
 三维各向同性谐振子的势能函数
 $
   V(r) = 1 / 2 mu omega^2 r^2 = 1 / 2 mu omega^2 (x^2 + y^2 + z^2)
 $
-哈密顿量可写为：
+Hamilton量可写为：
 $
   H = sum_i H_i , H_i = - hbar^2 / (2 mu) nabla_i^2 + 1 / 2 mu omega^2 r_i^2
 $
@@ -3131,7 +3140,7 @@ $
 
 #newpara()
 
-在球坐标系中，定态薛定鄂方程的径向部分：
+在球坐标系中，定态Schrödinger方程的径向部分：
 $
   (1 / r^2 dd("") / dd(r) (r^2 dd("") / dd(r)) + (2 mu) / hbar^2 (E - 1 / 2 mu omega^2 r^2) -( l (l + 1)) / r^2) R_l (r) = 0
 $
@@ -3235,11 +3244,13 @@ $
   numbering: none,
 )
 
+#pagebreak()
+
 = 带电粒子在电磁场中的运动
 
-== 薛定鄂方程的幺正变换
+== Schrödinger方程的幺正变换
 
-一般量子力学问题的薛定鄂方程：
+一般量子力学问题的Schrödinger方程：
 $
   (- hbar^2 / (2 mu) nabla^2 + U(r)) psi(arrow(r)) = i hbar partial / (partial t) psi(arrow(r))
 $
@@ -3252,24 +3263,24 @@ $
   q = - e\
   Phi(arrow(r)) = k_1 e / r
 $
-加入磁场后，经典哈密顿量变为（参考分析力学）:
+加入磁场后，经典Hamilton量变为（参考分析力学）:
 $
   H = 1 / (2 m) (arrow(p) - q arrow(A))^2 + q Phi(arrow(r))
 $
 磁力不是保守力，不像库仑力那样有一个标量势能项。但是我们知道*电磁场是包含动量的*，电荷$q$产生的$arrow(E)$与外磁场$arrow(B)$结合产生动量密度$epsilon_0 arrow(E) crossproduct arrow(B)$，这反映在动量的改变量中。$arrow(p)$是*正则动量*，而$arrow(pi) = arrow(p) - q arrow(A)$是*机械动量*。
 
-相应的，带电粒子在外电磁场作用下的哈密顿算符：
+相应的，带电粒子在外电磁场作用下的Hamilton算符：
 $
   hat(H) = 1 / (2 mu) (hat(p) - q hat(A))^2 + q Phi(arrow(r))
 $
-同氢原子问题（只有$q Phi$项）一样，这个算符对应的薛定鄂方程的适用范围是低速运动的粒子。对于高能问题，需对波函数和电磁场进行量子化（所谓二次量子化）。
+同氢原子问题（只有$q Phi$项）一样，这个算符对应的Schrödinger方程的适用范围是低速运动的粒子。对于高能问题，需对波函数和电磁场进行量子化（所谓二次量子化）。
 
 对任意势场，对方程做幺正变换：
 $
   psi -> psi' = e^(i theta) psi\
   hat(H) -> hat(H)' = e^(i theta) hat(H) e^(- i theta)
 $
-其中$theta = theta(arrow(r))$为不显含时间的任意实函数，显然这一变换是幺正变换，也不改变薛定鄂方程：
+其中$theta = theta(arrow(r))$为不显含时间的任意实函数，显然这一变换是幺正变换，也不改变Schrödinger方程：
 $
   hat(H)' psi' & = e^(i theta) hat(H) e^(- i theta) e^(i theta) psi = e^(i theta) hat(H) psi \
                & = i hbar partial / (partial t) psi' \
@@ -3300,7 +3311,7 @@ $
 $
 也就是说，这一代换在经典电磁学中同样不会产生任何物理上的不同。
 
-以上考虑的是静电场和静磁场的情况，在变化的电磁场中，哈密顿量显含时间，相应的幺正变换则为
+以上考虑的是静电场和静磁场的情况，在变化的电磁场中，Hamilton量显含时间，相应的幺正变换则为
 $
   psi -> psi' = e^(i theta) psi\
   hat(A) -> hat(A)' = hat(A) + hbar / q grad theta\
@@ -3310,9 +3321,9 @@ $
 
 == 规范不变性与Yang-Mills理论
 
-在量子场论中，初等量子力学中的波函数演变为经典场进入到哈密顿量中，与经典电磁场一起进行二次量子化。
+在量子场论中，初等量子力学中的波函数演变为经典场进入到Hamilton量中，与经典电磁场一起进行二次量子化。
 
-在这种情况下，规范变换就不像初等量子力学那样对波函数和算符同时变换，而是仅对哈密顿量（或拉格郎日量）进行变换-这就体现为系统的一种对称不变性。
+在这种情况下，规范变换就不像初等量子力学那样对波函数和算符同时变换，而是仅对Hamilton量（或拉格郎日量）进行变换-这就体现为系统的一种对称不变性。
 
 根据Noether定理，每一种对称性的背后都有一个守恒量。在量子场论中，如果系统规范不变，将带来深刻的物理结果，比如：
 - 系统电荷守恒（诸如$e -> nu gamma$不可能发生）
@@ -3330,17 +3341,19 @@ Yang、Mills二人发展了这一思想，把规范不变的公设从电磁U(1)�
 
 后来希格斯等提出了基于自发性对称破缺的机制来解释为什么粒子质量不为0。2012年希格斯粒子的发现，使得基于规范不变和希格斯质量机制这两大支柱的粒子物理“标准模型”得以最终确立。
 
-= 塞曼效应和郎道能级
+#pagebreak()
+
+= Zeeman效应和Landau能级
 
 == 在外场中的原子
 
-带电粒子在外场中的定态薛定鄂方程：
+带电粒子在外场中的定态Schrödinger方程：
 $
   (1 / (2m) (- i hbar grad - q arrow(A))^2 + q Phi(arrow(r))) psi(arrow(r)) =E psi(arrow(r))\
   1 / (2m) (-hbar^2 nabla^2 psi + i hbar q (grad dot (arrow(A) psi) + arrow(A) dot grad psi) + q^2 arrow(A)^2 psi) = (E - q Phi) psi\
   1 / (2m) (-hbar^2 nabla^2 psi + i hbar q ((grad dot arrow(A)) psi +2 arrow(A) dot grad psi) + q^2 arrow(A)^2 psi) = (E - q Phi) psi\
 $
-取*库仑规范*：
+取*规范*：
 $
   div arrow(A) = 0
 $
@@ -3402,11 +3415,11 @@ $
 #figure(
   image("pic/2024-05-24-13-41-40.png", width: 80%),
   caption: [
-    塞曼效应
+    Zeeman效应
   ],
 )
 
-*碱金属原子的能级在强磁场中分裂的现象称为正常塞曼(Zeeman)效应。*
+*碱金属原子的能级在强磁场中分裂的现象称为正常Zeeman效应。*
 
 == 自由粒子在磁场中运动
 
@@ -3422,15 +3435,15 @@ $
 $
   arrow(A) -> arrow(A)' = arrow(A) + grad f , f = 1 / 2 B x y
 $
-这时磁矢势变为（此即*朗道规范*）
+这时磁矢势变为（此即*Landau规范*）
 $
   arrow(A)' = vec(0, B x, 0)
 $
-取电子电荷$-e$，则在均匀磁场中运动电子的定态薛定鄂方程为
+取电子电荷$-e$，则在均匀磁场中运动电子的定态Schrödinger方程为
 $
   1 / (2m) (hat(arrow(p)) + e arrow(A))^2 psi = E psi
 $
-设$arrow(B)$沿$z$轴方向，电子运动限制在$x-y$平面内（二维电子气模型），则在朗道规范下方程为
+设$arrow(B)$沿$z$轴方向，电子运动限制在$x-y$平面内（二维电子气模型），则在Landau规范下方程为
 $
   1 / (2 m) (hat(p)_x^2 + (hat(p)_y + e B x)^2) psi = E psi
 $
@@ -3464,7 +3477,7 @@ $
 这个方程的解即是一维谐振子方程的解，只是坐标平移了$x_0$:
 $
   phi(x) = phi_n (x+x_0), psi(x, y) = e^(i k_y y) phi_n (x+x_0)\
-  E_n = (n + 1 / 2) hbar omega_c "朗道能级"
+  E_n = (n + 1 / 2) hbar omega_c "Landau能级"
 $
 量子观点：粒子在$x-y$平面内绕$z$轴转动。*粒子能量就是这种转动产生的磁矩*与磁场的相互作用能
 $
@@ -3474,9 +3487,9 @@ $
 $
   mu_z = - (e hbar) / (2 m) = - mu_B
 $
-即磁矩方向与磁场方向相反——*朗道抗磁性*。朗道抗磁性与电荷正负无关，是自由粒子在磁场中运动的量子效应。
+即磁矩方向与磁场方向相反——*Landau抗磁性*。Landau抗磁性与电荷正负无关，是自由粒子在磁场中运动的量子效应。
 
-朗道能级$n$对应的波函数$e^(i k_y y) phi_n (x+x_0)$是一种平面波和谐振子波函数的乘积，简并度是无穷大的：对于每个能级$E_n$，对应波函数中的$k_y$可以任意取值。
+Landau能级$n$对应的波函数$e^(i k_y y) phi_n (x+x_0)$是一种平面波和谐振子波函数的乘积，简并度是无穷大的：对于每个能级$E_n$，对应波函数中的$k_y$可以任意取值。
 
 考虑电子气局限于$L_x$宽的长条中，则必须有
 $
@@ -3498,7 +3511,9 @@ $
 
 如果使用对称规范，则电子绕$z$轴转动的物理图像更加一目了然。但是物理结论不依赖于规范选择（如同三维谐振子在直角坐标和球坐标系表象中的解一样），这个问题中两个不同规范对应的波函数解可以通过幺正变换联系起来。
 
-== 量子霍尔效应
+== 量子Hall效应
+
+#pagebreak()
 
 = 电子自旋及其描述
 
@@ -3598,7 +3613,7 @@ $
 
 非相对论量子力学在解释许多实验现象上都获得了成功，例如氢原子的能谱结构，但是更进一步的实验发现，还有许多实验现象，例如光谱线在磁场下的分裂、光谱线的精细结构，用前面讲述的理论无法解释，原因在于，以前的理论只涉及到轨道角动量。而新的实验表明，电子还具有自旋角动量。
 
-在非相对论量子力学中，自旋是作为一个新的附加的量子数引入的，只是在薛定鄂方程中加入自旋。
+在非相对论量子力学中，自旋是作为一个新的附加的量子数引入的，只是在Schrödinger方程中加入自旋。
 
 在相对论量子力学中，电子的自旋将自然地包含在相对论的波动方程Dirac方程中。
 
@@ -3729,7 +3744,7 @@ $
 == Pauli矩阵的主要性质
 
 Pauli矩阵的主要性质：
-- Pauli矩阵是厄密矩阵
+- Pauli矩阵是Hermite矩阵
 - $i != j$时满足：
   $
     sigma_i sigma_j = - sigma_j sigma_i = i epsilon_(i j k) sigma_k
@@ -3850,7 +3865,7 @@ $
                   - i sin(w_L / 2 t)
                 )
 $
-这种系统周期性地在两种不同量子态间来回跃迁又称为*振荡*(oscillation)。粒子自旋出现振荡现象的原因是：$sigma_z$和哈密顿算符不对易，自旋态$ket(chi)$不是定态。
+这种系统周期性地在两种不同量子态间来回跃迁又称为*振荡*(oscillation)。粒子自旋出现振荡现象的原因是：$sigma_z$和Hamilton算符不对易，自旋态$ket(chi)$不是定态。
 
 相反，如果$arrow(e)_B$沿$z$轴方向，则$hat(H) = 1 / 2 hbar omega_L sigma_z$和$sigma_z$对易，那么就不存在两个自旋量子态之间的跃迁，这时$ket(chi)$可为任意自旋态
 $
@@ -3858,7 +3873,7 @@ $
 $
 这时候自旋态的概率就不发生震荡了。
 
-= 角动量的合成、角动量耦合表象、反常塞曼效应(Bell基)
+= 角动量的合成、角动量耦合表象、反常Zeeman效应(Bell基)
 
 == 角动量的合成
 
@@ -4250,7 +4265,7 @@ $
 $
   - arrow(mu) dot arrow(B) = 1 / (2 m^2 c^2) 1 / r dd(V) / dd(r) arrow(S) dot arrow(L)
 $
-这一结果也可由狄拉克方程在非相对论极限下给出。由此看出，当旋-轨角动量平行时，耦合能量为正，反之为负。考虑到*旋-轨耦合*后的哈密顿算符为：
+这一结果也可由Dirac方程在非相对论极限下给出。由此看出，当旋-轨角动量平行时，耦合能量为正，反之为负。考虑到*旋-轨耦合*后的Hamilton算符为：
 $
   hat(H) = hat(p)^2 / (2 mu) + V(r) + xi(r) arrow(L) dot arrow(S)
 $
@@ -4285,13 +4300,13 @@ $
 )
 在考虑旋-轨耦合作用后，钠原子$3P$能级分裂为$3P_(3 / 2)$和$3P_(1 / 2)$。其中前者的简并度为4，后者的简并度为2。
 
-=== 反常塞曼效应
+=== 反常Zeeman效应
 
 前面我们讲到了由于*旋-轨耦合*$xi(r) arrow(L) dot arrow(S)$产生的*碱金属原子的双线结构*。
 
-由于*磁-轨耦合*$(e B) / (2 mu)hat(L)_z$产生的*正常塞曼效应*，以及*电子在外磁场中的能量*$(e B) / (mu)hat(S)_z$。
+由于*磁-轨耦合*$(e B) / (2 mu)hat(L)_z$产生的*正常Zeeman效应*，以及*电子在外磁场中的能量*$(e B) / (mu)hat(S)_z$。
 
-现在考虑*旋-轨耦合*和*磁-轨耦合*的共同作用，即*反常塞曼效应*。同时外加磁场$B$较弱，后两项与旋-轨耦合能量相当的情况。这时哈密顿算符的形式为
+现在考虑*旋-轨耦合*和*磁-轨耦合*的共同作用，即*反常Zeeman效应*。同时外加磁场$B$较弱，后两项与旋-轨耦合能量相当的情况。这时Hamilton算符的形式为
 $
   hat(H) &= hat(p)^2 / (2 mu) + V(r) + xi(r) arrow(L) dot arrow(S) + (e B) / (2 mu) (hat(L)_z + 2 hat(S)_z)\
   &= hat(p)^2 / (2 mu) + V(r) + xi(r) / 2 (hat(J)^2 - hat(L)^2 - hat(S)^2) + (e B) / (2 mu) hat(J)_z + (e B) / (2 mu) hat(S)_z
@@ -4302,13 +4317,13 @@ $
 $
   E_(n l j) , ket(n "," j "," m_j "," l "," 1 / 2)
 $
-每条能级是$(2j+1)$重简并。现在考虑加入$(e B) / (2 mu) hat(J)_z$项，则因为这一项与原哈密顿算符对易，系统量子态不变，但能级会多出一项变为：
+每条能级是$(2j+1)$重简并。现在考虑加入$(e B) / (2 mu) hat(J)_z$项，则因为这一项与原Hamilton算符对易，系统量子态不变，但能级会多出一项变为：
 $
   E_(n l j m_j) = E_(n l j) + (e B) / (2 mu) m_j hbar
 $
 这样$(2j+1)$重简并就被完全消除了。
 
-现在再考虑加入最后一项$(e B) / (2 mu) hat(S)_z$，由于这一项与原哈密顿算符不对易，所以新的本征态函数很难求出。但是如果仍沿用原有的波函数态$ket(n "," j "," m_j "," l "," 1 / 2)$，同时把最后一项看作*微扰*，则其对原能级的微扰修正为
+现在再考虑加入最后一项$(e B) / (2 mu) hat(S)_z$，由于这一项与原Hamilton算符不对易，所以新的本征态函数很难求出。但是如果仍沿用原有的波函数态$ket(n "," j "," m_j "," l "," 1 / 2)$，同时把最后一项看作*微扰*，则其对原能级的微扰修正为
 $
   Delta E = braket(n "," j "," m_j "," l "," 1 / 2, (e B) / (2 mu) hat(S)_z, n "," j "," m_j "," l "," 1 / 2)
 $
@@ -4331,7 +4346,7 @@ $
   ],
 )
 
-与正常塞曼效应相比，反常塞曼效应是光谱线分裂为*偶数条*。
+与正常Zeeman效应相比，反常Zeeman效应是光谱线分裂为*偶数条*。
 
 == 两个电子自旋的合成
 
@@ -4504,14 +4519,14 @@ $
 
 可以精确求解的量子力学问题是不多的，所以近似方法有重要的作用。微扰论是主要的近似方法之一（其它还有变分法、WKB法等）。
 
-零级定态薛定鄂方程：
+零级定态Schrödinger方程：
 $
   hat(H)^((0)) psi_n^((0)) = E_n^((0)) psi_n^((0))
 $
 
-其中$hat(H)^((0))$是容易解出的哈密顿算符，如氢原子系统、自由粒子
+其中$hat(H)^((0))$是容易解出的Hamilton算符，如氢原子系统、自由粒子
 
-假设加入微扰能$hat(H)^'$，则薛定鄂方程形式应该为：
+假设加入微扰能$hat(H)^'$，则Schrödinger方程形式应该为：
 $
   hat(H) psi_n = E_n psi_n, hat(H) = hat(H)^((0)) + hat(H)^'
 $
@@ -4636,7 +4651,7 @@ $
 
 === 在静电场中的一维谐振子
 
-假设一维谐振子还带有电荷$q$，并处在外加恒定电场$E$（沿$x$轴正向）中，那么哈密顿量是
+假设一维谐振子还带有电荷$q$，并处在外加恒定电场$E$（沿$x$轴正向）中，那么Hamilton量是
 $
   hat(H) = hat(H)^((0)) + hat(H)^'\
   hat(H)^((0)) = hat(p)^2 / (2 mu) + 1 / 2 mu omega^2 hat(x)^2\
@@ -4882,7 +4897,7 @@ $
 $
 其中$hat(G) = (E - hat(H)_0)^(-1)$是*Green函数*。
 
-第一项$ket(psi_0)$代表无微扰时的0级波函数，第二项$hat(G) V ket(psi)$代表微扰修正，$hat(G) = (E - hat(H)_0)^(-1)$为与传播子相关的*格林算符*。
+第一项$ket(psi_0)$代表无微扰时的0级波函数，第二项$hat(G) V ket(psi)$代表微扰修正，$hat(G) = (E - hat(H)_0)^(-1)$为与传播子相关的*Green算符*。
 
 可以用迭代法求级数解，即方程右边的$ket(psi)$用0级近似$ket(psi_0)$代替，求得$ket(psi)$后再代入方程的右边，如此循环往复得：
 $
@@ -4896,7 +4911,7 @@ $
 $
   braket(arrow(r), psi) = braket(arrow(r), psi_0) + braket(arrow(r), hat(G) V, psi_0) = braket(arrow(r), psi_0) + integral dd(""^3 r') braket(arrow(r), hat(G), arrow(r')) braket(arrow(r'), V, psi_0)
 $
-其中$braket(arrow(r'), V, psi_0)$表示粒子在$arrow(r)'$处被散射，Green函数$braket(arrow(r), hat(G), arrow(r'))$表示粒子从$arrow(r')$传播到$arrow(r)$。下面求坐标表象中的格林函数：
+其中$braket(arrow(r'), V, psi_0)$表示粒子在$arrow(r)'$处被散射，Green函数$braket(arrow(r), hat(G), arrow(r'))$表示粒子从$arrow(r')$传播到$arrow(r)$。下面求坐标表象中的Green函数：
 $
   braket(arrow(r), hat(G), arrow(r')) = integral dd(""^3 k') braket(arrow(r), 1 / (E-hat(H)_0), arrow(k')) braket(arrow(k'), arrow(r')) = 1 / (2 pi)^3 integral dd(""^3 k') e^(i arrow(k') dot (arrow(r) - arrow(r'))) / (E - (hbar^2 k'^2) / ( 2 m))
 $
@@ -4988,7 +5003,7 @@ $
 
 == 散射问题中的角动量守恒
 
-中心力场问题（束缚或非束缚）的定态薛定鄂方程为
+中心力场问题（束缚或非束缚）的定态Schrödinger方程为
 $
   (- hbar^2 / (2 mu r^2) partial / (partial r) (r^2 partial / (partial r)) +V(r) + hat(L)^2 / (2 mu r^2)) psi = E psi
 $
@@ -4996,7 +5011,7 @@ $
 $
   (1 / r^2 dd("") / dd(r) (r^2 dd("") / dd(r)) + (2 mu) / (hbar^2) (E- V(r) - (l(l+1)hbar^2) / (2 mu r^2)) ) R(r) = 0
 $
-同时，其角度部分波函数解即是球谐函数$Y_(l m) (theta, phi)$ ，而且角动量算符和哈密顿对易：
+同时，其角度部分波函数解即是球谐函数$Y_(l m) (theta, phi)$ ，而且角动量算符和Hamilton对易：
 $
   [hat(L)^2, hat(H)] = 0, [hat(L)_z, hat(H)] = 0
 $
@@ -5125,7 +5140,7 @@ $
 $
 对$S=1$三重态来说此符号为负，其它态为正。
 
-所以三重态自旋波函数反对称，所以空间部分也应该反对称（玻色子总体对称），相应的微分散射截面为
+所以三重态自旋波函数反对称，所以空间部分也应该反对称（Boson总体对称），相应的微分散射截面为
 $
   abs(f(theta) - f(pi - theta))^2
 $
@@ -5162,17 +5177,17 @@ $
 $
   hat(H) = hat(H)_0 + hat(H)'
 $
-其中$hat(H)_0$为原哈密顿算符(如自由粒子)，$hat(H)'$为微扰算符。Shrödinger方程为
+其中$hat(H)_0$为原Hamilton算符(如自由粒子)，$hat(H)'$为微扰算符。Shrödinger方程为
 $
   i hbar partial / (partial t) ket(psi(t)) = (hat(H)_0 + hat(H)') ket(psi)
 $
 $ket(psi(t))$通常很难解析求出，所以用微扰近似，用无微扰时的波函数来展开波函数的修正项。
 
-非微扰哈密顿算符定态本征值及本征函数为
+非微扰Hamilton算符定态本征值及本征函数为
 $
   hat(H)_0 ket(phi_n) = E_n ket(phi_n)
 $
-加上微扰后的薛定鄂方程
+加上微扰后的Schrödinger方程
 $
   i hbar partial / (partial t) ket(psi(t)) = (hat(H)_0 + V(arrow(x), t)) ket(psi(t)) , V =H'
 $
@@ -5180,7 +5195,7 @@ $
 $
   psi = sum_n a_n (t) phi_n e^(- i / hbar E_n t)
 $
-代入薛定鄂方程得：
+代入Schrödinger方程得：
 $
   i hbar sum dd(a_n) / dd(t) phi_n e^(- i / hbar E_n t) = sum_n a_n (E_n + V) phi_n e^(- i / hbar E_n t)
 $
@@ -5335,15 +5350,15 @@ $
 
 跃迁振幅公式为（注意时间积分改为从0开始了）
 $
-  i T_(m k) = a_m (t) = 1 / (i hbar) integral_0^t dd(t) e^(i / hbar (E_m - E_k) t) integral dd(""^3 x) phi_m^* hat(H)'(t) phi_k
+  i T_(m k) = a_m (t) = 1 / (i hbar) integral_0^TT dd(t) e^(i / hbar (E_m - E_k) t) integral dd(""^3 x) phi_m^* hat(H)'(t) phi_k
 $
 矩阵元$H'_(m k)$也有类似时间依赖关系：
 $
   H'_(m k) (t) = F_(m k) sin (omega t), F_(m k) = integral phi_m^* hat(F) phi_k dd(tau)
 $
 $
-  a_(k->m) &= F_(m k) 1 / (i hbar) integral_0^t sin(omega t') e^(i omega_(m k) t') dd(t')\
-  &= F_(m k) -1 / (2 hbar) integral_0^t (e^(i omega t') - e^(- i omega t')) e^(i omega_(m k) t') dd(t')\
+  a_(k->m) &= F_(m k) 1 / (i hbar) integral_0^TT sin(omega t') e^(i omega_(m k) t') dd(t')\
+  &= F_(m k) -1 / (2 hbar) integral_0^TT (e^(i omega t') - e^(- i omega t')) e^(i omega_(m k) t') dd(t')\
   &= - F_(m k) 1 / (2 i hbar)( (e^(i(omega+omega_(m k))t)-1) / (omega + omega_(m k)) + (e^(-i(omega-omega_(m k))t)-1) / (omega - omega_(m k)))
 $
 其中
@@ -5379,7 +5394,7 @@ $
     W_(k->m) = (P_(k->m) (t)) / t = abs(F_(m k))^2 / (2 hbar^2)pi (delta(omega + omega_(m k)) + delta(omega - omega_(m k)))
   $
   严格来讲，等式右边的$δ$函数只在$t→∞$才成立，但只要$t$足够大，$δ$函数就已经是很好的近似了。$t$足够大的判据是$t ≫ 1 / omega_min$，其中$omega_min$是系统最小的$omega_(m k)$。$1 / omega_min$被称为系统的*特征时间*。
-- 利用F的厄密性可以证明
+- 利用F的Hermite性可以证明
   $
     abs(F_(m k)) = abs(F_(k m))
   $
@@ -5491,7 +5506,7 @@ $
 $
 从物理的角度来看，这是由于角动量守恒，因为光子的总自旋量子数是1。当然，在其它的过程中还会有类似的选择定则。
 
-== 正常塞曼效应再探讨 —— 自旋的影响
+== 正常Zeeman效应再探讨 —— 自旋的影响
 
 #figure(
   image("pic/2024-06-20-11-30-41.png", width: 80%),

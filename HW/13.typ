@@ -1,23 +1,31 @@
 #import "@preview/scripst:1.1.2": *
-#show: scripst.with(title: [量子力学第13次作业], author: "Anzreww", time: "2024年", matheq-depth: 1, cb-counter-depth: 1)
+#show: scripst.with(
+  title: [量子力学第13次作业],
+  author: "Anzreww",
+  time: "2024年",
+  matheq-depth: 1,
+  cb-counter-depth: 1,
+)
 
 #exercise(subname: [15.1])[
   在双电子三重态基底 $|1,1 〉,|1,0 〉,|1,-1 〉$ 中写出总自旋分量 $S_z$。对单电子自旋基底作任意 $S U(2)$ 变换
   $
-    U=mat(alpha,beta;-beta^*,alpha^*), quad abs(alpha)^2+abs(beta)^2=1,
+    U=mat(alpha, beta; -beta^*, alpha^*), quad abs(alpha)^2+abs(beta)^2=1,
   $
   求诱导到三重态空间的变换，并说明新表象中的 $S_z$。
 ]
 #solution[
   旧表象中
   $
-    S_z=hbar mat(1,0,0;0,0,0;0,0,-1).
+    S_z=hbar mat(1, 0, 0; 0, 0, 0; 0, 0, -1).
   $
   把 $U|↑ 〉,U|↓ 〉$ 的张量积对称化，得到三重态中的自旋一表示
   $
-    D^1(U)=mat(alpha^2,sqrt(2)alpha beta,beta^2;
-    -sqrt(2)alpha beta^*,abs(alpha)^2-abs(beta)^2,sqrt(2)alpha^* beta;
-    beta^(*)^2,-sqrt(2)alpha^* beta^*,alpha^(*)^2).
+    D^1(U)=mat(
+      alpha^2, sqrt(2)alpha beta, beta^2;
+      -sqrt(2)alpha beta^*, abs(alpha)^2-abs(beta)^2, sqrt(2)alpha^* beta;
+      beta^(*)^2, -sqrt(2)alpha^* beta^*, alpha^(*)^2
+    ).
   $
   新表象中的矩阵由
   $
@@ -47,17 +55,17 @@
 ]
 
 #exercise(subname: [15.3])[
-  两个全同粒子处于一维无限深势阱 $0<x<a$ 中。分别对自旋为零的玻色子和自旋为 $1/2$ 的费米子，写出最低三条两粒子能量及空间本征函数。
+  两个全同粒子处于一维无限深势阱 $0<x<a$ 中。分别对自旋为零的Boson和自旋为 $1/2$ 的Fermion，写出最低三条两粒子能量及空间本征函数。
 ]
 #solution[
-  记单粒子态为 $phi_n$，$epsilon_n=n^2 epsilon_1$，$epsilon_1=pi^2 hbar^2/(2m a^2)$。玻色子的最低三条能量为
+  记单粒子态为 $phi_n$，$epsilon_n=n^2 epsilon_1$，$epsilon_1=pi^2 hbar^2/(2m a^2)$。Boson的最低三条能量为
   $
     2epsilon_1, quad epsilon_1+epsilon_2=5epsilon_1,
     quad 2epsilon_2=8epsilon_1,
   $
   空间波函数依次为 $phi_1 phi_1$、$(phi_1 phi_2+phi_2 phi_1)/sqrt(2)$、$phi_2 phi_2$。
 
-  对自旋 $1/2$ 费米子，总波函数须反对称。最低能量 $2epsilon_1$ 只能配自旋单态；能量 $5epsilon_1$ 可由对称空间态配单态，或反对称空间态配三重态；下一条 $8epsilon_1$ 再由 $phi_2phi_2$ 配单态。各态的交换对称性由此完全确定。
+  对自旋 $1/2$ Fermion，总波函数须反对称。最低能量 $2epsilon_1$ 只能配自旋单态；能量 $5epsilon_1$ 可由对称空间态配单态，或反对称空间态配三重态；下一条 $8epsilon_1$ 再由 $phi_2phi_2$ 配单态。各态的交换对称性由此完全确定。
 ]
 
 #exercise(subname: [15.4])[
@@ -66,7 +74,7 @@
 #proof[
   任意归一化二分量旋量除去整体相位后都可写为
   $
-    chi=mat(cos(theta/2);exp(i phi)sin(theta/2)).
+    chi=mat(cos(theta/2); exp(i phi)sin(theta/2)).
   $
   令 $bold(n)=(sin theta cos phi,sin theta sin phi,cos theta)$，直接相乘得到
   $
@@ -117,7 +125,7 @@
   从 Lippmann—Schwinger 方程推导三维散射波函数的远区形式，并写出精确到第一 Born 近似的散射振幅。
 ]
 #solution[
-  定态方程的出射格林函数为
+  定态方程的出射Green函数为
   $
     G^+(bold(r),bold(r)')=-m/(2 pi hbar^2)
     exp(i k abs(bold(r)-bold(r)'))/abs(bold(r)-bold(r)').
